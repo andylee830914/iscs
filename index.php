@@ -50,7 +50,18 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li class="active"><a href="#">首頁</a></li>
-              <li><a href="assignment.php">作業</a></li>
+              <?php
+              if(isset($_COOKIE["token"])) {
+              ?> 
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">作業 <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="hw1.php">作業一</a></li>
+                </ul>
+              </li>
+              <?php
+              }
+              ?>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               

@@ -58,7 +58,12 @@ $name=$_COOKIE["user"];
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li><a href="index.php">首頁</a></li>
-              <li  class="active"><a href="#">作業</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">作業 <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="hw1.php">作業一</a></li>
+                </ul>
+              </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               
@@ -82,7 +87,7 @@ $name=$_COOKIE["user"];
       </nav>
 
       <!-- Main component for a primary marketing message or call to action -->
-      <h2>作業一</h2>
+      <h2>請選擇作業！</h2>
       
       
       

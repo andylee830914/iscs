@@ -22,11 +22,13 @@ function moodle_check($array){
 if (isset($_POST['username'])) {
   $logindata['username']=$_POST['username'];
   $logindata['password']=$_POST['password'];
-
+  $name=ucfirst($logindata['username'])."iscs2016";
+  
   $token=moodle_check($logindata);
   if (isset($token)) {
     setcookie("token",$token, time()+3600*5);
-    setcookie("user",$logindata['username'], time()+3600*5);
+    setcookie("user",ucfirst($logindata['username']), time()+3600*5);
+    setcookie("role",md5($name),time()+3600*5);
     echo '<meta http-equiv=REFRESH CONTENT=0;url=index.php>';
   }
   
@@ -74,7 +76,7 @@ if (isset($_POST['username'])) {
 
       <form class="form-signin" role="form" method="post" action="login.php">
         <h2 class="form-signin-heading">請登入</h2>
-        <h4>使用"L16"或"L18"開頭的 成大moodle 帳號密碼登入</h4>
+        <h4>使用 成大moodle 帳號密碼登入</h4>
         <label for="username" class="sr-only">學號</label>
         <input type="text" id="username" name="username" class="form-control" placeholder="Email address" required autofocus>
         <label for="password" class="sr-only">密碼</label>
