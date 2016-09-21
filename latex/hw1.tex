@@ -4,9 +4,13 @@
 
 \documentclass[12pt,a4paper]{article}
 % Required for proper escaping
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
 \usepackage{textcomp} % Symbols
-\usepackage[T1]{fontenc} % Input format
+\usepackage{fontspec,xltxtra,xunicode}
 
+
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
 % Because Unicode etc.
 \usepackage{fontspec} % For loading fonts
 
@@ -14,7 +18,7 @@
 \newcommand{\placeholder}[1]{\textbf{$<$ #1 $>$}}
 
 % Defaults for each variable
-\newcommand{\invoiceNumber}{\placeholder{Student ID}}
+\newcommand{\idnumber}{\placeholder{Student ID}}
 \newcommand{\invoiceDate}{\placeholder{Invoice Date}}
 \newcommand{\invoiceBalance}{\placeholder{\$0.00}}
 \newcommand{\customerName}{\placeholder{Customer Name}}
@@ -33,6 +37,21 @@
 \pagestyle{empty}
 
 \begin{document}
-\begin{flushleft}科學計算軟體作業一\qquad\qquad\qquad\qquad\qquad\qquad\idnumber{}\end{flushleft}
+\begin{flushleft}Introduction to Scientific Computing Software HW1
+\\Student ID : \idnumber{}\end{flushleft}
+
+Please use MuPAD to solve following problems : 
+\begin{enumerate}
+\item 
+$\displaystyle{\sum^\infty_{k=1}\frac{(-1)^{k+2}}{k^2}}$
+
+\item Plot
+$\displaystyle{f(x)=\sin x+\frac{\sin 3x}{3}+\frac{\sin5x}{5}+\frac{\sin7x}{7}+\frac{\sin9x}{9}}$
+
+\item Differentiate the function. $f(x)=x^x$
+
+\item Calculate $31^{10000}\pmod{17}$
+
+\end{enumerate}
 
 \end{document}
