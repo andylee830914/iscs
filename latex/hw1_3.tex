@@ -19,17 +19,11 @@
 
 % Defaults for each variable
 \newcommand{\idnumber}{\placeholder{Student ID}}
-\newcommand{\invoiceDate}{\placeholder{Invoice Date}}
-\newcommand{\invoiceBalance}{\placeholder{\$0.00}}
-\newcommand{\customerName}{\placeholder{Customer Name}}
-\newcommand{\customerAddress}{\placeholder{Customer Address}}
+\newcommand{\moodleid}{\placeholder{ID}}
 
 % Fill in
 % <?php echo "\n" . "\\renewcommand{\\idnumber}{" . LatexTemplate::escape($data['idnumber']) . "}\n"; ?>
-% <?php echo "\n" . "\\renewcommand{\\invoiceDate}{" . LatexTemplate::escape($data['invoiceDate']) . "}\n"; ?>
-% <?php echo "\n" . "\\renewcommand{\\invoiceBalance}{" . LatexTemplate::escape($data['invoiceBalance']) . "}\n"; ?>
-% <?php echo "\n" . "\\renewcommand{\\customerName}{" . LatexTemplate::escape($data['customerName']) . "}\n"; ?>
-% <?php echo "\n" . "\\renewcommand{\\customerAddress}{" . LatexTemplate::escape($data['customerAddress']) . "}\n"; ?>
+% <?php echo "\n" . "\\renewcommand{\\moodleid}{" . LatexTemplate::escape($data['moodleid']) . "}\n"; ?>
 
 % LaTeX code for the invoice
 \usepackage{tabularx}
@@ -43,14 +37,14 @@
 Please use MuPAD to solve following problems : 
 \begin{enumerate}
 \item 
-$\displaystyle{\sum^\infty_{k=1}\frac{(-1)^{k+2}}{k^2}}$
+$\displaystyle{\sum^\infty_{k=0}\frac{(-1)^{k}}{k+1}}$
 
 \item Plot
-$\displaystyle{f(x)=\sin x+\frac{\sin 3x}{3}+\frac{\sin5x}{5}+\frac{\sin7x}{7}+\frac{\sin9x}{9}}$
+$\displaystyle{f(x)= \frac{8}{\pi^2} \left( \sin (2\pi x)-{1 \over 9} \sin (6\pi x)+{1 \over 25} \sin (10\pi x)\right) },x\in[\pi,\pi]$
 
-\item Differentiate the function. $f(x)=x^x$
+\item Integrate the function. $\displaystyle{\int^\infty_{-\infty}\frac{\sin \pi x}{\pi x}dx}$
 
-\item Calculate $31^{10000}\pmod{17}$
+\item Calculate $31^{\moodleid}\pmod{17}$
 
 \end{enumerate}
 

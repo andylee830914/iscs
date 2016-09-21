@@ -5,12 +5,16 @@ if (!isset($_COOKIE["token"])) {
 include("connect.php");
 $name=$_COOKIE["user"];
 require_once('latex/LatexTemplate.php');
+$quy="select * from user where idnumber='".$name."'";
+$result=mysql_query($quy);
+$moodleid=mysql_result($result,0,1);
 $test = "";
 if(isset($_GET['t'])) {
 	// Make the LaTeX file and send it through
 	$test = $_GET['t'];
 	$data = array(
-			'idnumber' => $name
+			'idnumber' => $name,
+      'moodleid' => $moodleid
 	);
 
 	try {
