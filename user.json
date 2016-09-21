@@ -10,11 +10,6 @@
     "idnumber" : "C14006230"
   },
   {
-    "fullname" : "胡彥綱",
-    "id" : 66209,
-    "idnumber" : "C14011219"
-  },
-  {
     "fullname" : "王少甫",
     "id" : 66929,
     "idnumber" : "E74011124"
@@ -58,11 +53,6 @@
     "fullname" : "林哲宏",
     "id" : 74022,
     "idnumber" : "C14026222"
-  },
-  {
-    "fullname" : "林俞君",
-    "id" : 74865,
-    "idnumber" : "H54026258"
   },
   {
     "fullname" : "李俊億",
@@ -135,11 +125,6 @@
     "idnumber" : "E14032152"
   },
   {
-    "fullname" : "黃楷元",
-    "id" : 84353,
-    "idnumber" : "F24031051"
-  },
-  {
     "fullname" : "孫億昇",
     "id" : 84892,
     "idnumber" : "E14035079"
@@ -210,11 +195,6 @@
     "idnumber" : "C14046230"
   },
   {
-    "fullname" : "鄭皓元",
-    "id" : 91527,
-    "idnumber" : "C14046248"
-  },
-  {
     "fullname" : "王峻賢",
     "id" : 91529,
     "idnumber" : "C14046264"
@@ -223,11 +203,6 @@
     "fullname" : "林子敬",
     "id" : 91531,
     "idnumber" : "C14046298"
-  },
-  {
-    "fullname" : "邱于展",
-    "id" : 91669,
-    "idnumber" : "E24046080"
   },
   {
     "fullname" : "黎彥德",
@@ -360,6 +335,11 @@
     "idnumber" : "C14041086"
   },
   {
+    "fullname" : "陳俊祺",
+    "id" : 93738,
+    "idnumber" : "C14041052"
+  },
+  {
     "fullname" : "賴思量",
     "id" : 93739,
     "idnumber" : "C14041044"
@@ -368,11 +348,6 @@
     "fullname" : "李昱勳",
     "id" : 95028,
     "idnumber" : "L16054075"
-  },
-  {
-    "fullname" : "羅靖皓",
-    "id" : 99733,
-    "idnumber" : "E34058071"
   },
   {
     "fullname" : "江宗錡",
