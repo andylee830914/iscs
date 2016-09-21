@@ -20,6 +20,9 @@ if(isset($_GET['t'])) {
 
 	try {
 		LatexTemplate::download($data, 'latex/hw1/hw1_'.$hw.'.tex', $name.'_HW1.pdf');
+    $date       = date('Y-m-d H:i:s');
+    $quy2="INSERT INTO download (moodleid,time, download, hw) VALUES ('".$moodleid."','".$date."','".$hw."',  '1')";
+    mysql_query($quy2);
 	} catch(Exception $e) {
 		echo $e -> getMessage();
 	}
@@ -117,7 +120,7 @@ if(isset($_GET['t'])) {
                   <ul>
                   <li>請回 moodle 上傳本次作業。</li>
                   <li>"作業題目"請與"MuPAD檔"一起放進資料夾，使用zip壓縮。</li>
-                  <li>請把學號姓名寫在MuPAD檔第一行。</li>                                                                                    
+                  <li>請把學號姓名打在MuPAD檔第一行。</li>                                                                                    
                   <li>檔名：<strong>學號_HW1.zip</strong></li>               
                   </ul>
               </li>
