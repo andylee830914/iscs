@@ -19,12 +19,19 @@ function moodle_check($array){
             return NULL;
         }
 }
+include("connect.php");
 if (isset($_POST['username'])) {
   $logindata['username']=$_POST['username'];
   $logindata['password']=$_POST['password'];
   $name=ucfirst($logindata['username'])."iscs2016";
-  
-  $token=moodle_check($logindata);
+  $quy="SELECT * FROM user where `idnumber`='".$logindata['username']."'";
+  $result=mysql_query($quy);
+  $moodleid=mysql_result($result,0,0); 
+  if($moodleid){
+    $token=moodle_check($logindata);
+  }else{
+    $error="您不是本堂課成員，請聯絡助教確認！謝謝！";
+  }
   if (isset($token)) {
     setcookie("token",$token, time()+3600*5);
     setcookie("user",ucfirst($logindata['username']), time()+3600*5);
@@ -77,6 +84,7 @@ if (isset($_POST['username'])) {
       <form class="form-signin" role="form" method="post" action="login.php">
         <h2 class="form-signin-heading">請登入</h2>
         <h4>使用 成大moodle 帳號密碼登入</h4>
+        <?php if($error){echo $error;}?>
         <label for="username" class="sr-only">學號</label>
         <input type="text" id="username" name="username" class="form-control" placeholder="Email address" required autofocus>
         <label for="password" class="sr-only">密碼</label>

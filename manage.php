@@ -8,16 +8,22 @@ $name1=$_COOKIE["role"];
 if ($name1==md5("L16054075iscs2016")||$name1==md5("C1039iscs2016")||$name1==md5("L16041056iscs2016")) {
   $string = file_get_contents("user.json");
   $json = json_decode($string, true);
-  $quy="select * from user";
+  $quy="select * from user order by moodleid";
   $result=mysql_query($quy);
 }else{
   echo '<meta http-equiv=REFRESH CONTENT=0;url=index.php>';
 }
 
-//foreach ($json as $key => $value) {
-  //$quy="INSERT INTO user (moodleid, idnumber, fullname) VALUES ('".$value['id']."', '".$value['idnumber']."',  '".$value['fullname']."')";
-  //mysql_query($quy);
-//}
+foreach ($json as $key => $value) {
+  $quy1="select id from user where idnumber='".$value['idnumber']."'";
+  $result1=mysql_query($quy1);
+  $sqlid=mysql_result($result1,0,0);
+  if(!$sqlid){
+  $quy2="INSERT INTO user (moodleid, idnumber, fullname) VALUES ('".$value['id']."', '".$value['idnumber']."',  '".$value['fullname']."')";
+  echo $quy2;
+  mysql_query($quy2);
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
