@@ -87,7 +87,7 @@
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
         <h1>科學計算軟體</h1>
-        <p>請使用成大 moodle 帳號密碼登入</p>
+        <p>成功大學數學系 105學年度「科學計算軟體」課程</p>
         <p>
           <?php
             if(!isset($_COOKIE["token"])) {
@@ -98,7 +98,8 @@
           ?>
         </p>
       </div>
-
+  <footer class="footer" ><p>Developed by Lee,Yu-Hsun &copy; NCKU MATH 2016</p> </footer>
+      
     </div> <!-- /container -->
 
 
