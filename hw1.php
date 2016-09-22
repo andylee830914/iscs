@@ -119,7 +119,7 @@ if(isset($_GET['t'])) {
               <li>上傳規定：
                   <ul>
                   <li>請回 moodle 上傳本次作業。</li>
-                  <li>"作業題目"請與"MuPAD檔"一起放進資料夾，使用zip壓縮。</li>
+                  <li>"作業題目"、"MuPAD檔"、"螢幕截圖"、"輸出PDF檔"請一起放進資料夾，使用zip壓縮。</li>
                   <li>請把學號姓名打在MuPAD檔第一行。</li>                                                                                    
                   <li>檔名：<strong>學號_HW1.zip</strong></li>               
                   </ul>
