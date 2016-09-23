@@ -8,3 +8,5 @@ connect.php
 *.log
 
 *.gz
+
+/ta/*
