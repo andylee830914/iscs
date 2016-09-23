@@ -25,11 +25,6 @@
     "idnumber" : "F64016211"
   },
   {
-    "fullname" : "陳祉潔",
-    "id" : 73805,
-    "idnumber" : "F64024010"
-  },
-  {
     "fullname" : "黃品翔",
     "id" : 74004,
     "idnumber" : "C14026044"
@@ -110,11 +105,6 @@
     "idnumber" : "C14036023"
   },
   {
-    "fullname" : "楊季樺",
-    "id" : 83611,
-    "idnumber" : "B54031266"
-  },
-  {
     "fullname" : "柯昀昇",
     "id" : 83934,
     "idnumber" : "E14031122"
@@ -123,6 +113,11 @@
     "fullname" : "李嘉芙",
     "id" : 83971,
     "idnumber" : "E14032152"
+  },
+  {
+    "fullname" : "張鈞翔",
+    "id" : 84002,
+    "idnumber" : "E14033085"
   },
   {
     "fullname" : "呂金勳",
@@ -175,6 +170,11 @@
     "idnumber" : "C14046125"
   },
   {
+    "fullname" : "王惠妮",
+    "id" : 91522,
+    "idnumber" : "C14046183"
+  },
+  {
     "fullname" : "陳冠睿",
     "id" : 91523,
     "idnumber" : "C14046191"
@@ -225,14 +225,14 @@
     "idnumber" : "F64046169"
   },
   {
+    "fullname" : "鍾日超",
+    "id" : 92047,
+    "idnumber" : "F74046080"
+  },
+  {
     "fullname" : "謝東辰",
     "id" : 92587,
     "idnumber" : "C14049026"
-  },
-  {
-    "fullname" : "楊博文",
-    "id" : 92612,
-    "idnumber" : "F64041119"
   },
   {
     "fullname" : "林秉賢",
