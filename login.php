@@ -27,11 +27,10 @@ if (isset($_POST['username'])) {
   $quy="SELECT * FROM user where `idnumber`='".$logindata['username']."'";
   $result=mysql_query($quy);
   $moodleid=mysql_result($result,0,0); 
-  if($moodleid){
-    $token=moodle_check($logindata);
-  }elseif($_POST['username']=="admin" && $_POST['password']=="iscs2016ta"){
-    print_r($_POST);
+  if($_POST['username']=="admin" && $_POST['password']=="iscs2016ta"){
     $token="iamadmin1234";
+  }elseif($moodleid){
+    $token=moodle_check($logindata);
   }else{
     $error="您不是本堂課成員，請聯絡助教確認！謝謝！";
   }
