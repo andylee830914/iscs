@@ -29,7 +29,7 @@ if (isset($_POST['username'])) {
   $moodleid=mysql_result($result,0,0); 
   if($moodleid){
     $token=moodle_check($logindata);
-  }elseif($_POST['username']=="admin" && $_POST['password']==md5("iscs2016ta")){
+  }elseif($_POST['username']=="admin" && $_POST['password']=="iscs2016ta"){
     $token="iamadmin1234";
   }else{
     $error="您不是本堂課成員，請聯絡助教確認！謝謝！";
