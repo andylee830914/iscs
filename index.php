@@ -36,53 +36,7 @@
     <div class="container">
 
       <!-- Static navbar -->
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">科學計算軟體</a>
-          </div>
-          <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#">首頁</a></li>
-              <?php
-              if(isset($_COOKIE["token"])) {
-              ?> 
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">作業 <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="hw1.php">作業一</a></li>
-                </ul>
-              </li>
-              <?php
-              }
-              ?>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              
-              <!--<li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li>-->
-              <?php
-              if(isset($_COOKIE["token"])) {
-              ?>  
-                  <li><a ><?php echo $_COOKIE["user"];?>，您好！</a></li>
-                  <li><a href="logout.php">登出</a></li>
-              <?php
-              }else{
-              ?>
-                  <li><a href="login.php">登入</a></li>
-              
-              <?php
-              }
-              ?>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
-      </nav>
+      <?php include('navbar.php');?>
 
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
