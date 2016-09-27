@@ -20,7 +20,7 @@ class MATLABTemplate {
 	
 		// Run python
 		ob_start();
-		$cmd = sprintf("python ".$python." ".$f);
+		$cmd = sprintf("python ".$python." ".$f." ".$username);
 		chdir(sys_get_temp_dir());
 		exec($cmd, $foo, $ret);
 	
@@ -33,7 +33,7 @@ class MATLABTemplate {
 		// Send through output
 		$fp = fopen($mat_f, 'rb');
 		header('Content-Type: application/x-mat');
-		header('Content-Disposition: attachment; filename="' . $username . '_data.mat"' );
+		header('Content-Disposition: attachment; filename="data.mat"' );
 		header('Content-Length: ' . filesize($mat_f));
 		fpassthru($fp);
 	
