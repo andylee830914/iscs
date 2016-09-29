@@ -1,9 +1,9 @@
 <?php
+$url="../";
 if (!isset($_COOKIE["token"])) {
-      echo '<meta http-equiv=REFRESH CONTENT=0;url=login.php>';
+      echo '<meta http-equiv=REFRESH CONTENT=0;url='.$url.'login.php>';
 }
 include("../connect.php");
-$url="../";
 $name=$_COOKIE["user"];
 require_once('../latex/LatexTemplate.php');
 $quy="select * from user where idnumber='".$name."'";
