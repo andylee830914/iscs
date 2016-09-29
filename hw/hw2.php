@@ -25,7 +25,7 @@ if(isset($_GET['t'])) {
 	try {
 		LatexTemplate::download($data, $url.'latex/hw2/hw2_'.$hw.'.tex', $name.'_HW2.pdf');
     $date       = date('Y-m-d H:i:s');
-    $quy2="INSERT INTO download (moodleid,time, download, hw) VALUES ('".$moodleid."','".$date."','".$hw."',  '1')";
+    $quy2="INSERT INTO download (moodleid,time, download, hw) VALUES ('".$moodleid."','".$date."','pdf".$hw."',  '2')";
     mysql_query($quy2);
 	} catch(Exception $e) {
 		echo $e -> getMessage();
@@ -46,9 +46,9 @@ if(isset($_GET['py'])) {
     $python="$root/iscs/latex/hw2/pymat.py";    
     MATLABTemplate::download($python,$name,$moodleid);
     //echo 'python /home/www/html/iscs/ta/pymat.py '.$moodleid;
-    //$date       = date('Y-m-d H:i:s');
-    //$quy2="INSERT INTO download (moodleid,time, download, hw) VALUES ('".$moodleid."','".$date."','".$hw."',  '1')";
-    // mysql_query($quy2);
+    $date       = date('Y-m-d H:i:s');
+    $quy3="INSERT INTO download (moodleid,time, download, hw) VALUES ('".$moodleid."','".$date."','mat".$hw."',  '2')";
+    mysql_query($quy3);
 	} catch(Exception $e) {
 		echo $e -> getMessage();
 	}
