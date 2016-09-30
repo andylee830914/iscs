@@ -79,12 +79,20 @@ if (isset($_GET['py'])||isset($_GET['t'])) {
               <li>上傳規定：
                   <ul>
                   <li>請回 moodle 上傳本次作業。</li>
-                  <li>"作業題目"、"MAT檔"、"螢幕截圖"請一起放進資料夾，使用zip壓縮。</li>                                                                                    
+                  <li>本次作業需將執行指令寫入 <strong>學號.m</strong> 檔 (MATLAB script file)</li>                                                   
+                  <li>"作業題目"、"data.mat檔"、"學號.m檔"、"螢幕截圖"請一起放進資料夾，使用zip壓縮。</li>                                                                                    
                   <li>檔名：<strong>學號_HW2.zip</strong></li>               
                   </ul>
               </li>
               <li>期限：2016-10-06 17:00</li>
-              <li>作業請自己寫！不會寫可以跟同學、老師或助教討論！</li>               
+              <li>
+              其他注意事項：              
+                  <ul>
+                  <li>上傳前請確認壓縮檔內是否有四個檔案。</li>
+                  <li>請確認題目檔、data.mat是否是自己的學號。</li>                                                    
+                  <li>作業請自己寫！不會寫可以跟同學、老師或助教討論！</li>
+                  </ul>
+              </li>               
 
             
           </ul>
