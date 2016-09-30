@@ -16,7 +16,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">作業 <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="<?php echo $url;?>hw/hw1.php">作業一</a></li>
-            <!--<li><a href="<?php echo $url;?>hw/hw2.php">作業二</a></li>-->
+            <li><a href="<?php echo $url;?>hw/hw2.php">作業二</a></li>
             
           </ul>
         </li>
