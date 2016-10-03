@@ -27,7 +27,7 @@ if (isset($_POST['username'])) {
   $quy="SELECT * FROM user where `idnumber`='".$logindata['username']."'";
   $result=mysql_query($quy);
   $moodleid=mysql_result($result,0,0); 
-  if(ucfirst($_POST['username'])=="C12345678" && $_POST['password']=="iscs2016ta"){
+  if(ucfirst($_POST['username'])=="C12345678" && $_POST['password']=="iscs2016"){
     $token="iamadmin1234";
   }elseif($moodleid){
     $token=moodle_check($logindata);
