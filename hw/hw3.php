@@ -6,7 +6,7 @@ if (!isset($_COOKIE["token"])) {
 include("../connect.php");
 
 $name=$_COOKIE["user"];
-require_once('../latex/CLatexTemplate.php');
+require_once('../latex/LatexTemplate.php');
 require_once('../latex/MATLABTemplate.php');
 
 
@@ -25,7 +25,7 @@ if(isset($_GET['t'])) {
 	);
 
 	try {
-		CLatexTemplate::download($data, $url.'latex/hw3/hw3_'.$hw.'.tex', $name.'_HW3.pdf');
+		LatexTemplate::download($data, $url.'latex/hw3/hw3_'.$hw.'.tex', $name.'_HW3.pdf');
     // $date       = date('Y-m-d H:i:s');
     $quy2="INSERT INTO download (moodleid,time, download, hw) VALUES ('".$moodleid."','".$date."','pdf".$hw."',  '3')";
     // mysql_query($quy2);
