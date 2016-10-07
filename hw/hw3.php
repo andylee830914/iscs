@@ -26,9 +26,9 @@ if(isset($_GET['t'])) {
 
 	try {
 		LatexTemplate::download($data, $url.'latex/hw3/hw3_'.$hw.'.tex', $name.'_HW3.pdf');
-    // $date       = date('Y-m-d H:i:s');
+    $date       = date('Y-m-d H:i:s');
     $quy2="INSERT INTO download (moodleid,time, download, hw) VALUES ('".$moodleid."','".$date."','pdf".$hw."',  '3')";
-    // mysql_query($quy2);
+    mysql_query($quy2);
 	} catch(Exception $e) {
 		echo $e -> getMessage();
 	}
