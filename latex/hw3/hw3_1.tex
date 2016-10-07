@@ -6,7 +6,8 @@
 % Required for proper escaping
 \usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
 
-\usepackage{CJK}
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
 
 % Make placeholders visible
 \newcommand{\placeholder}[1]{\textbf{$<$ #1 $>$}}
@@ -17,8 +18,8 @@
 
 
 % Fill in
-% <?php echo "\n" . "\\renewcommand{\\idnumber}{" . CLatexTemplate::escape($data['idnumber']) . "}\n"; ?>
-% <?php echo "\n" . "\\renewcommand{\\moodleid}{" . CLatexTemplate::escape($data['moodleid']) . "}\n"; ?>
+% <?php echo "\n" . "\\renewcommand{\\idnumber}{" . LatexTemplate::escape($data['idnumber']) . "}\n"; ?>
+% <?php echo "\n" . "\\renewcommand{\\moodleid}{" . LatexTemplate::escape($data['moodleid']) . "}\n"; ?>
 
 % LaTeX code for the invoice
 \usepackage{tabularx}
@@ -29,21 +30,30 @@
 
 
 \begin{document}
-\begin{CJK}{UTF8}{bsmi}
-\begin{flushleft}科學計算軟體 HW3
+\begin{flushleft}Introduction to Scientific Computing Software HW3
 \\Student ID : \idnumber{}\end{flushleft}
 
-請使用 MATLAB 完成以下題目 : 
+Write a \textbf{MATLAB script file} to solve following problem.
 \begin{enumerate}
-\item 拍音(Beating)\\
-$\circledcirc$以下圖形的 $x$ 範圍皆為$[0,2\pi]$。\\
-$\circledcirc$圖片標題：100Hz+50Hz $\Rightarrow f_{beat}=25$Hz\\
-$\circledcirc$在右下角放置 Legend，標示兩小題的圖形。
+\item Beating (Plot three functions in the same figure)
 \begin{enumerate} 
-\item 畫出 $\sin(100x)$ 和 $\sin(50x)$ 疊合後的圖形。
+\item $\sin(100x)+\sin(50x)$ : (in red solid line with square markers).
 
-\item 用「紅色」畫出 $2\cos(25x)$ 和 $-2\cos(25x)$ 的圖形，並疊在(a)小題的圖上。
+\item $2\cos(5x)$ : (in blue dotted line with ``o" markers).
+\item $-2\cos(5x)$ : (in yellow dashed line with ``+" markers).
 \end{enumerate}
+Features:
+\begin{itemize}
+\item Figure title : 100Hz+90Hz $\Rightarrow f_{beat}=50$Hz.
+\item Location of the legend : West-South of the figure.
+\item Range of $x $ : $[0,2\pi]$.
+\end{itemize}
+%\item 泰勒多項式\\$\circledcirc$以下圖形的 $x$ 範圍皆為$[-5,5]$。\\
+%$\circledcirc$圖片標題：Tyler polynimial of $e^x$ at 0。\\
+%$\circledcirc$在左上角放置 Legend，標示各階泰勒多項式及原函數。
+%\begin{enumerate} 
+%\item 畫出 $e^x$ 的圖形。
+%\item 畫出 $e^x$ 在 $x=0$ 的3階($T_3(x)$)、4階($T_4(x)$)、5階($T_5(x)$)泰勒多項式，並疊在(a)小題的圖上。
+%\end{enumerate}
 \end{enumerate}
-\end{CJK}
 \end{document}
