@@ -60,7 +60,7 @@ if (isset($_GET['py'])||isset($_GET['t'])) {
                   <ul>
                   <li>請回 moodle 上傳本次作業。</li>
                   <li>本次作業需將執行指令寫入 <strong>學號.m</strong> 檔 (MATLAB script file)</li>                                                   
-                  <li>"作業題目"、"學號.m檔"、"螢幕截圖"請一起放進資料夾，使用zip壓縮。</li>                                                                                    
+                  <li>"作業題目"、"學號.m檔"、"結果截圖"請一起放進資料夾，使用zip壓縮。</li>                                                                                    
                   <li>檔名：<strong>學號_HW3.zip</strong></li>               
                   </ul>
               </li>
