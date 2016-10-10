@@ -88,7 +88,7 @@ if (isset($_POST['username'])) {
         <h4>使用 成大moodle 帳號密碼登入</h4>
         <?php if($error){echo $error;}?>
         <label for="username" class="sr-only">學號</label>
-        <input type="text" id="username" name="username" class="form-control" placeholder="Email address" required autofocus>
+        <input type="text" id="username" name="username" class="form-control" placeholder="Student ID" required autofocus>
         <label for="password" class="sr-only">密碼</label>
         <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
         <button class="btn btn-lg btn-primary btn-block" type="submit">登入</button>
