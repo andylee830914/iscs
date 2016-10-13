@@ -6,7 +6,7 @@ if (!isset($_COOKIE["token"])) {
 include("../connect.php");
 
 $name=$_COOKIE["user"];
-require_once('../latex/LatexTemplate.php');
+require_once('../latex/CLatexTemplate.php');
 require_once('../latex/MATLABTemplate.php');
 
 

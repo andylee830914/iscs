@@ -5,10 +5,10 @@
 \documentclass[12pt,a4paper]{article}
 % Required for proper escaping
 \usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
-\usepackage{ctex}
-\XeTeXlinebreaklocale "zh"
-\XeTeXlinebreakskip = 0pt plus 1pt
-
+%\usepackage{ctex}
+%\XeTeXlinebreaklocale "zh"
+%\XeTeXlinebreakskip = 0pt plus 1pt
+\usepackage{CJK}
 % Make placeholders visible
 \newcommand{\placeholder}[1]{\textbf{$<$ #1 $>$}}
 
@@ -18,8 +18,8 @@
 
 
 % Fill in
-% <?php echo "\n" . "\\renewcommand{\\idnumber}{" . LatexTemplate::escape($data['idnumber']) . "}\n"; ?>
-% <?php echo "\n" . "\\renewcommand{\\moodleid}{" . LatexTemplate::escape($data['moodleid']) . "}\n"; ?>
+% <?php echo "\n" . "\\renewcommand{\\idnumber}{" . CLatexTemplate::escape($data['idnumber']) . "}\n"; ?>
+% <?php echo "\n" . "\\renewcommand{\\moodleid}{" . CLatexTemplate::escape($data['moodleid']) . "}\n"; ?>
 
 % LaTeX code for the invoice
 \usepackage{tabularx}
@@ -48,6 +48,7 @@ Features:
 \item Location of the legend : West-South of the figure.
 \item Range of $x $ : $[0,2\pi]$.
 \end{itemize}
+\begin{CJK}{UTF8}{bsmi}
 \item 泰勒多項式\\$\circledcirc$以下圖形的 $x$ 範圍皆為$[-5,5]$。\\
 $\circledcirc$圖片標題：Tyler polynimial of $e^x$ at 0。\\
 $\circledcirc$在左上角放置 Legend，標示各階泰勒多項式及原函數。
@@ -55,5 +56,6 @@ $\circledcirc$在左上角放置 Legend，標示各階泰勒多項式及原函�
 \item 畫出 $e^x$ 的圖形。
 \item 畫出 $e^x$ 在 $x=0$ 的3階($T_3(x)$)、4階($T_4(x)$)、5階($T_5(x)$)泰勒多項式，並疊在(a)小題的圖上。
 \end{enumerate}
+\end{CJK}
 \end{enumerate}
 \end{document}
