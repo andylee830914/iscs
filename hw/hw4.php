@@ -13,8 +13,8 @@ require_once('../latex/MATLABTemplate.php');
 $quy="select * from user where idnumber='".$name."'";
 $result=mysql_query($quy);
 $moodleid=mysql_result($result,0,1);
-// $hw=intval(substr($name,5,4)) % 4;
-$hw=0;
+$hw=$moodleid % 2;
+//$hw=0;
 $test = "";
 if(isset($_GET['t'])) {
 	// Make the LaTeX file and send it through
