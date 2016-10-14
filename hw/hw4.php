@@ -50,7 +50,7 @@ if (isset($_GET['py'])||isset($_GET['t'])) {
       <?php include('../navbar.php');?>
 
       <!-- Main component for a primary marketing message or call to action -->
-      <h2>作業三</h2>
+      <h2>作業四</h2>
       <div class="panel panel-default">
         <div class="panel-body">
           <h3>作業要求</h3>
@@ -61,10 +61,10 @@ if (isset($_GET['py'])||isset($_GET['t'])) {
                   <li>請回 moodle 上傳本次作業。</li>
                   <li>本次作業需將執行指令寫入 <strong>學號.m</strong> 檔 (MATLAB script file)</li>                                                   
                   <li>"作業題目"、"學號.m檔"、"結果截圖"請一起放進資料夾，使用zip壓縮。</li>                                                                                    
-                  <li>檔名：<strong>學號_HW3.zip</strong></li>               
+                  <li>檔名：<strong>學號_HW4.zip</strong></li>               
                   </ul>
               </li>
-              <li>期限：2016-10-13 17:00</li>
+              <li><h3>期限：2016-10-20 13:00 (這次有提早喔！)</h3></li>
               <li>
               其他注意事項：              
                   <ul>
