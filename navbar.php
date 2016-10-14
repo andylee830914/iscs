@@ -18,6 +18,7 @@
             <li><a href="<?php echo $url;?>hw/hw1.php">作業一</a></li>
             <li><a href="<?php echo $url;?>hw/hw2.php">作業二</a></li>
             <li><a href="<?php echo $url;?>hw/hw3.php">作業三</a></li>
+            <li><a href="<?php echo $url;?>hw/hw4.php">作業四</a></li>
             
             
           </ul>
