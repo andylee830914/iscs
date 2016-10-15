@@ -2,6 +2,8 @@
 Automatic personal assignment pdf generating system.
 ## Requirement
 * LaTeX
+
+
 ## MySQL Connection
 Please make a ```connect.php``` file under the directory. Here is the sample content :
 ```
