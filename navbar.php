@@ -11,7 +11,7 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li><a href="<?php echo $url;?>index.php">首頁</a></li>
+              <li><a href="<?php echo $url;?>about.php">關於</a></li>
               <li class="dropdown">
               <?php
               if(isset($_COOKIE["token"])) {
