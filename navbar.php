@@ -13,6 +13,9 @@
             <ul class="nav navbar-nav">
               <li><a href="<?php echo $url;?>index.php">首頁</a></li>
               <li class="dropdown">
+              <?php
+              if(isset($_COOKIE["token"])) {
+              ?> 
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">作業 <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="<?php echo $url;?>hw/hw1.php">作業一</a></li>
@@ -22,6 +25,9 @@
             
             
           </ul>
+              <?php
+              }
+              ?>
         </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
