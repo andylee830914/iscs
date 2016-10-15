@@ -30,8 +30,7 @@ if (isset($_POST['username'])) {
   if(ucfirst($_POST['username'])=="C12345678" && $_POST['password']=="iscs2016"){
     $token="iamadmin1234";
   }elseif($moodleid){
-    // $token=moodle_check($logindata);
-    $token="moodleerror";
+    $token=moodle_check($logindata);
   }else{
     $error="您不是本堂課成員，請聯絡助教確認！謝謝！";
   }
@@ -83,10 +82,9 @@ if (isset($_POST['username'])) {
   <body>
 
     <div class="container">
+
       <form class="form-signin" role="form" method="post" action="login.php">
         <h2 class="form-signin-heading">請登入</h2>
-    <div class="alert alert-warning" role="alert">成大moodle維修中無法連線！請直接輸入學號登入，不需要輸入密碼！</div>
-        
         <h4>使用 成大moodle 帳號密碼登入</h4>
         <?php if($error){echo $error;}?>
         <label for="username" class="sr-only">學號</label>
