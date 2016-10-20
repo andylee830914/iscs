@@ -25,7 +25,7 @@ function draw(formid){
     .offset([-10, 0])
     .style('z-index', '99999999')
     .html(function(d) {
-        return "<strong>"+d.time+":</strong> <span style='color:red'>" + d.total + "</span>";
+        return "<strong>"+d.time+" : </strong> <span style='color:red'>" + d.total + "</span>";
     })
 
     var svg = d3.select("#analysisd3").append("svg")
