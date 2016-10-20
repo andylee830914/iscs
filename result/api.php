@@ -24,7 +24,7 @@ function get_all_assignment($assid){
 $data=get_all_assignment($assignment);
 foreach ($data as $key => $value) {
     date_default_timezone_set('Asia/Taipei');
-    $index=date('Y-m-d-H', $value->timemodified);
+    $index=date('Y-m-d H:00', $value->timemodified);
     $time[$index]++;
 }
 $timekey=array_keys($time);
