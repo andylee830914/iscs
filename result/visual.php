@@ -59,6 +59,8 @@ if($_GET['hw']){
 
       <!-- Static navbar -->
       <?php include('../navbar.php');?>
+      <h2>作業繳交時間分佈圖</h2>
+      <div class="row">
         <div class="col-sm-3">      
                 <select class="form-control" id="assignment" onchange="window.location.href='?&hw='+this.value">
                 <option value="">--</option>      
@@ -71,9 +73,12 @@ if($_GET['hw']){
                   echo '</option>';
                 }?>
                 </select>
-            </div>
-
+        </div>
+        </div>
+        <div class="row">
             <div id="analysisd3"></div>
+        </div>
+            
 
       <!-- Main component for a primary marketing message or call to action -->
       
