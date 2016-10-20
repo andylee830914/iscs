@@ -24,21 +24,15 @@ function get_all_assignment($assid){
 $data=get_all_assignment($assignment);
 foreach ($data as $key => $value) {
     date_default_timezone_set('Asia/Taipei');
-    $index=date('Y-m-d H:00:00', $value->timemodified);
+    $index=date('Y-m-d-H', $value->timemodified);
     $time[$index]++;
 }
 $timekey=array_keys($time);
 sort($timekey);
-$begin=strtotime($timekey[0]);
-$last=strtotime($timekey[count($timekey)-1]);
-$hour=ceil(($last-$begin)/ ( 60 * 60 ));
-for ($i=0; $i < $hour; $i++) { 
-    $nowindex=date('Y-m-d H:00:00', $begin+$i*60*60);
-    $newdata[$i]->time = $nowindex;
-    $newdata[$i]->total=0;
-    
+for ($i=0; $i < count($timekey); $i++) { 
     foreach ($time as $key1 => $value1) {
-                    if ($key1==$nowindex) {
+                    if ($key1==$timekey[$i]) {
+                        $newdata[$i]->time        = $timekey[$i];
                         $newdata[$i]->total= $value1;
                     }
                 }
