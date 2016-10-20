@@ -40,7 +40,7 @@ if($_GET['hw']){
   <?php include('../header.php');?>
   <link href="../dist/css/myd3.css" rel="stylesheet">
   <script>
-  var api_site_url="http://127.0.0.1/iscs/result/";
+  var api_site_url="http://<?php echo $_SERVER[HTTP_HOST];?>/iscs/result/";
   var nowid='<?php echo $_GET['hw'];?>';
   </script>
   <script src="../dist/js/d3.js"></script>
