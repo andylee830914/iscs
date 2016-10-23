@@ -13,26 +13,41 @@
             <ul class="nav navbar-nav">
               <li><a href="<?php echo $url;?>about.php">關於</a></li>
               <?php
+              //auth zone
               if(isset($_COOKIE["token"])) {
               ?> 
               <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">作業 <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="<?php echo $url;?>hw/hw1.php">作業一</a></li>
+                    <li><a href="<?php echo $url;?>hw/hw2.php">作業二</a></li>
+                    <li><a href="<?php echo $url;?>hw/hw3.php">作業三</a></li>
+                    <li><a href="<?php echo $url;?>hw/hw4.php">作業四</a></li>
+                  </ul>
+              </li>   
+              <?php if($_SERVER['SCRIPT_NAME']=="/iscs/result/visual.php"){?>
+              <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">繳交情況 <span class="caret"></span></a>
+               <ul class="dropdown-menu">
+                <?php 
+                foreach ($assignmment as $akey => $avalue) {
+                  echo '<li><a href="?hw='.$avalue->id.'"';
+                  if($_GET['hw']==$avalue->id) {
+                    $nowtitle=$avalue->name;
+                    echo ' selected="selected"';
+                  } 
+                  echo '>';
+                  echo $avalue->name;
+                  echo '</a></li>';
+                }?>
+                </ul>
+              </li>                   
+              <?php }else{?>
+              <li><a href="<?php echo $url;?>result/visual.php">繳交情況</a></li>              
+              <?php }?>
 
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">作業 <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="<?php echo $url;?>hw/hw1.php">作業一</a></li>
-            <li><a href="<?php echo $url;?>hw/hw2.php">作業二</a></li>
-            <li><a href="<?php echo $url;?>hw/hw3.php">作業三</a></li>
-            <li><a href="<?php echo $url;?>hw/hw4.php">作業四</a></li>
-            
-            
-          </ul>
-          
-
-        </li>
-              <li><a href="<?php echo $url;?>result/visual.php">繳交情況</a></li>
-              <?php
-              }
-              ?>
+              <?php }?>
+              
             </ul>
             <ul class="nav navbar-nav navbar-right">
               
