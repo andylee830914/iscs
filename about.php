@@ -26,8 +26,12 @@
         採用 LaTeX 排版系統，可以產生高品質的中英文 PDF 題目檔。
       <p>
       <p>
-        <h3>多樣化題目</h3>
+        <h3>多樣化的出題方式</h3>
         除了 PDF 格式題目，更能產生個人化的 MATLAB mat 資料檔、csv 檔等等，讓出題更有彈性。  
+      <p>
+      <p>
+        <h3>試場加密</h3>
+        提供輸入密碼才能下載題目的功能。 
       <p>
   <footer class="footer" ><p>Developed by Lee,Yu-Hsun &copy; NCKU MATH 2016</p> </footer>
       
