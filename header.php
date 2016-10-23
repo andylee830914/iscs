@@ -16,5 +16,5 @@
 
     <!-- Custom styles for this template -->
     <link href="<?php echo $url;?>dist/css/navbar.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="<?php echo $url;?>dist/js/jquery.min.js"></script>
     <script src="<?php echo $url;?>dist/js/bootstrap.min.js"></script>
