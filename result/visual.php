@@ -37,17 +37,19 @@ if($_GET['hw']){
 ?>
 <!DOCTYPE html>
 <html lang="en">
+<head>
   <?php include('../header.php');?>
+
   <link href="../dist/css/myd3.css" rel="stylesheet">
   <script>
   var api_site_url="http://<?php echo $_SERVER[HTTP_HOST];?>/iscs/result/";
   var nowid='<?php echo $_GET['hw'];?>';
   </script>
   <script src="../dist/js/d3.js"></script>
-  <script src="../dist/js/d3.tip.js"></script>  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="../dist/js/d3.tip.js"></script>
   <script src="../dist/js/mydraw.js"></script>
   
+</head> 
   
 
   
@@ -84,14 +86,5 @@ if($_GET['hw']){
       
     </div> <!-- /container -->
 
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    
-    <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
