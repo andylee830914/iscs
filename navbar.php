@@ -25,6 +25,8 @@
                     <li><a href="<?php echo $url;?>hw/hw4.php">作業四</a></li>
                   </ul>
               </li>   
+              <li><a href="<?php echo $url;?>hw/mid1.php">期中考</a></li>              
+              
               <?php if($_SERVER['SCRIPT_NAME']=="/iscs/result/visual.php"){?>
               <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">繳交情況 <span class="caret"></span></a>
@@ -45,7 +47,6 @@
               <?php }else{?>
               <li><a href="<?php echo $url;?>result/visual.php">繳交情況</a></li>              
               <?php }?>
-
               <?php }?>
               
             </ul>
