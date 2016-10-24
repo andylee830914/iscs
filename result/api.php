@@ -22,7 +22,7 @@ function get_all_assignment($assid){
 }
 
 $data=get_all_assignment($assignment);
-$minite=array('25746'=>"1476892800",'25927'=>"1477292400");
+$minite=array('25746'=>"1476892800");
 $init=$minite[$assignment]; 
 foreach ($data as $key => $value) {
     date_default_timezone_set('Asia/Taipei');
