@@ -14,10 +14,14 @@ $quy="select * from user where idnumber='".$name."'";
 $result=mysql_query($quy);
 $moodleid=mysql_result($result,0,1);
 $hw=$moodleid % 2;
+date_default_timezone_set('Asia/Taipei');
+$date = date('Y-m-d H:i:s');  
+
 //$hw=0;
 $test = "";
 if(isset($_GET['t']) && $_GET['pass']==md5('iscs2016midterm'.$name)) {
 	// Make the LaTeX file and send it through
+
 	$test = $_GET['t'];
 	$data = array(
 			'idnumber' => $name,
@@ -26,9 +30,10 @@ if(isset($_GET['t']) && $_GET['pass']==md5('iscs2016midterm'.$name)) {
 
 	try {
 		CLatexTemplate::download($data, $url.'latex/mid1/mid1_'.$hw.'.tex', $name.'_MID.pdf');
-    $date       = date('Y-m-d H:i:s');
+
     $quy2="INSERT INTO download (moodleid,time, download, hw) VALUES ('".$moodleid."','".$date."','midpdf".$hw."',  '105')";
     mysql_query($quy2);
+    
 	} catch(Exception $e) {
 		echo $e -> getMessage();
 	}
@@ -44,6 +49,8 @@ if (isset($_GET['py'])||isset($_GET['t'])) {
 <html lang="en">
 <head>
   <?php include('../header.php');?>
+  <link rel="stylesheet" href="../upload/css/jquery.fileupload.css">
+<link rel="stylesheet" href="../upload/css/jquery.fileupload-ui.css">
 </head>
 
   <body>
@@ -56,6 +63,16 @@ if (isset($_GET['py'])||isset($_GET['t'])) {
       <!-- Main component for a primary marketing message or call to action -->
       <h2>期中上機考</h2>
       <?php if($_POST['testpass']=="20161023"){?>
+      <?php 
+  $ip         = $_SERVER['REMOTE_ADDR'];
+  $confirm    = $_POST['accept'];
+  if(!isset($confirm)){
+    $confirm=0;
+  }
+  $quy3="INSERT INTO sign (moodleid,time, ip, confirm) VALUES ('".$moodleid."','".$date."','".$ip."',  '".$confirm."')";
+  mysql_query($quy3);
+      
+      ?>
       <div class="panel panel-default">
         <div class="panel-body">
           <h3>作業要求</h3>
@@ -86,16 +103,17 @@ if (isset($_GET['py'])||isset($_GET['t'])) {
       </div>
       <table>
       <tr>
-      <td class="col-md-6">
+  <td class="col-md-6">
   <form>
     <input type="hidden" name="pass" value="<?php echo md5('iscs2016midterm'.$name);?>"/>
 		<input type="hidden" name="t" /> <input type="submit" class="btn btn-primary btn-lg" value="下載題目" />
 	</form>
-      </td>
-      <td class="col-md-6">
+  </td>
+  <td class="col-md-8">
   <!--<form>
 		<input type="hidden" name="py" /> <input type="submit" class="btn btn-primary btn-lg" value="下載資料" />
 	</form>-->
+  
     </td>
     </tr>
       </table>
@@ -115,7 +133,7 @@ if (isset($_GET['py'])||isset($_GET['t'])) {
         <div class="panel-body">
           <h3>考試說明</h3>
           <form class="form-inline" method="post" action="">
-          <center><h4><input type="checkbox" id="accept"> 我願意遵守考試規則！</h4></center>
+          <center><h4><input type="checkbox" id="accept" name="accept" value="1"> 我願意遵守考試規則！</h4></center>
           <center>
             <div class="form-group"><input type="password" class="form-control " name="testpass" placeholder="試卷密碼"></div>
             <button type="submit" class="btn btn-default" id="enter" disabled>進入試卷</button>
