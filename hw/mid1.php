@@ -15,7 +15,12 @@ $result=mysql_query($quy);
 $moodleid=mysql_result($result,0,1);
 $quy3="select * from midterm where moodleid='".$moodleid."' ORDER BY time DESC";
 $result3=mysql_query($quy3);
-$filename=mysql_result($result3,0,5);
+if(mysql_num_rows($result3)==0){
+  $filename="";
+}else{
+  $filename=mysql_result($result3,0,5);
+  
+}
 $hw=$moodleid % 2;
 date_default_timezone_set('Asia/Taipei');
 $date = date('Y-m-d H:i:s');  

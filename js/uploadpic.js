@@ -11,12 +11,25 @@ $(document).ready(function(){
             {
                 data=JSON.parse(data);
                 if(data.error){
-                    console.log("error");
-                    alert(data.error+'\n上傳限制：解析度小於 1920x1080，且檔案小於 512KB。');
+                    switch(data.error){
+                        case 'typeerror':
+                            alert('請上傳 zip 檔！');
+                            break;
+                        case 'size':
+                            alert('檔案限制10MB！');
+                            break;
+                        default:
+                            alert('系統錯誤，請洽助教！');
+                            break;
+                        
+                    }
+                    console.log("error"+data.error);
+
                 }else{
                     console.log(data);
                     console.log("success");
                     $("#pic").val(data.userfile["name"]);
+                    alert("上傳成功！");
                 }
 
             }

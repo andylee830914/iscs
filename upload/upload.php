@@ -11,8 +11,13 @@ $ds          = DIRECTORY_SEPARATOR;  //1
 $storeFolder = 'midterm';   //2
 $quy3="select * from midterm where moodleid='".$moodleid."' ORDER BY time DESC";
 $result3=mysql_query($quy3);
-$attempt=mysql_result($result3,0,4);
- 
+
+if (mysql_num_rows($result3)==0) {
+    $attempt=0;    
+}else{
+    $attempt=mysql_result($result3,0,4);
+}
+$accept=array('application/zip','application/octet-stream');
 if (!empty($_FILES)) {
     $tempFile = $_FILES['userfile']['tmp_name'];          //3             
       
@@ -25,10 +30,18 @@ if (!empty($_FILES)) {
     if(!file_exists($targetPath)){
         mkdir($targetPath, 0777);
     }
-
-    move_uploaded_file($tempFile,$targetFile); //6
-    $quy2="INSERT INTO midterm (ip,time, moodleid, attempt,filename) VALUES ('".$ip."','".$date."','".$moodleid."','".$_FILES['userfile']['attempt']."',  '".$_FILES['userfile']['name']."')";
-    mysql_query($quy2);
+    if(in_array($_FILES['userfile']['type'],$accept)){
+        if(mysql_num_rows($result3)!=0){
+            $oldname=mysql_result($result3,0,5);
+            rename($targetPath.$oldname,$targetPath.'v'.$attempt.'_'.$oldname);
+        }
+        move_uploaded_file($tempFile,$targetFile);
+        $quy2="INSERT INTO midterm (ip,time, moodleid, attempt,filename) VALUES ('".$ip."','".$date."','".$moodleid."','".$_FILES['userfile']['attempt']."',  '".$_FILES['userfile']['name']."')";
+        mysql_query($quy2);
+    }else{
+        $_FILES['error']='typeerror';
+    }
+    
     echo json_encode($_FILES);
      
 }
