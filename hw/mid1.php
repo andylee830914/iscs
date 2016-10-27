@@ -13,6 +13,9 @@ require_once('../latex/MATLABTemplate.php');
 $quy="select * from user where idnumber='".$name."'";
 $result=mysql_query($quy);
 $moodleid=mysql_result($result,0,1);
+$quy3="select * from midterm where moodleid='".$moodleid."' ORDER BY time DESC";
+$result3=mysql_query($quy3);
+$filename=mysql_result($result3,0,5);
 $hw=$moodleid % 2;
 date_default_timezone_set('Asia/Taipei');
 $date = date('Y-m-d H:i:s');  
@@ -49,8 +52,11 @@ if (isset($_GET['py'])||isset($_GET['t'])) {
 <html lang="en">
 <head>
   <?php include('../header.php');?>
-  <link rel="stylesheet" href="../upload/css/jquery.fileupload.css">
-<link rel="stylesheet" href="../upload/css/jquery.fileupload-ui.css">
+<script src="<?php echo $url;?>js/ajaxfileupload.js"></script>
+<script src="<?php echo $url;?>js/uploadpic.js"></script>
+<script>
+var site_url="<?php echo $url;?>"
+</script>
 </head>
 
   <body>
@@ -109,14 +115,50 @@ if (isset($_GET['py'])||isset($_GET['t'])) {
 		<input type="hidden" name="t" /> <input type="submit" class="btn btn-primary btn-lg" value="下載題目" />
 	</form>
   </td>
-  <td class="col-md-8">
+  <td class="col-md-6">
   <!--<form>
 		<input type="hidden" name="py" /> <input type="submit" class="btn btn-primary btn-lg" value="下載資料" />
 	</form>-->
   
     </td>
     </tr>
+    <tr>
+    
+  <td class="col-md-12">
+    <h3>檔案上傳區</h3>    
+  
+    <div>
+    <?php
+    echo '<div class="form-group ">';
+    echo '<div class="col-sm-5">';
+    echo '<input  class="form-control" id="pic" name="pic" placeholder="請選擇檔案後，按「上傳」鍵。"
+           value="'.$filename.'" readonly>';
+    // echo '</div><div class="col-sm-4">';
+    // echo '<button class="btn btn-default" id="deletepic"/>刪除圖片</button>' ;
+    // echo '</div></div>';
+    ?>
+    </form>
+    </td>
+    
+    </tr>
+    <tr>
+  <td class="col-md-12">
+    <form>
+    <div class="form-group form-inline">
+        <div class="col-sm-3">
+            <input type="file" name="userfile" size="20" id="userfile"/>
+        </div>
+        <div class="col-sm-4">
+            <button class="btn btn-default" id="mysubmit"/>上傳</button>
+
+        </div>
+
+    </div>
+    </td>
+    </tr>
+    
       </table>
+
       <?php }elseif(isset($_GET['error'])){?>
       <div class="panel panel-danger">
         <div class="panel-heading">
