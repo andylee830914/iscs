@@ -22,12 +22,12 @@ function get_all_assignment($assid){
 }
 
 $data=get_all_assignment($assignment);
-$minite=array('25746'=>"1476892800");
+$minite=array('25746'=>"1476892800",'26117'=>"1477544400");
 $init=$minite[$assignment]; 
 foreach ($data as $key => $value) {
     date_default_timezone_set('Asia/Taipei');
     if(isset($minite[$assignment])){
-        $now=ceil(($value->timemodified-$init)/ ( 60 * 5 ));        
+        $now=round(($value->timemodified-$init)/ ( 60 * 5 ));        
         $index=date('Y-m-d H:i:00', $init+$now*60*5);
         $time[$index]++;  
     }else{
