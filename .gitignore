@@ -10,3 +10,5 @@ connect.php
 *.gz
 
 /ta/*
+
+/upload/midterm/*
