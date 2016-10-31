@@ -27,6 +27,7 @@ if (isset($_POST['username'])) {
   $name=ucfirst($logindata['username'])."iscs2016";
   $quy="SELECT * FROM user where `idnumber`='".$logindata['username']."'";
   $result=mysql_query($quy);
+  $ip = $_SERVER['REMOTE_ADDR'];
   $moodleid=mysql_result($result,0,0); 
   if(ucfirst($_POST['username'])=="C12345678" && $_POST['password']=="iscs2016"){
     $token="iamadmin1234";
@@ -39,6 +40,8 @@ if (isset($_POST['username'])) {
     setcookie("token",$token, time()+3600*5);
     setcookie("user",ucfirst($logindata['username']), time()+3600*5);
     setcookie("role",md5($name),time()+3600*5);
+    $updateip="UPDATE user set loginip='".$ip."' WHERE idnumber='".$logindata['username']."'";
+    mysql_query($updateip);
     echo '<meta http-equiv=REFRESH CONTENT=0;url=index.php>';
   }
   
