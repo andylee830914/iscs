@@ -86,25 +86,24 @@ var site_url="<?php echo $url;?>"
       ?>
       <div class="panel panel-default">
         <div class="panel-body">
-          <h3>作業要求</h3>
+          <h3>題目要求</h3>
           <ul>
-              <li>請按底下的「下載檔案」，下載本次的 作業題目PDF檔</li>                           
+              <li>請按底下的「下載檔案」，下載本次期中考的題目PDF檔，若有其他需求請當場告知！</li>                           
               <li>上傳規定：
                   <ul>
-                  <li>請回 moodle 上傳本次作業。</li>
-                  <li>本次作業需將執行指令寫入 <strong>學號.m</strong> 檔 (MATLAB script file)</li>                                                   
-                  <li>"作業題目"、"學號.m檔"、"結果截圖"請一起放進資料夾，使用zip壓縮。</li>                                                                                    
-                  <li>檔名：<strong>學號_HW4.zip</strong></li>               
+                  <li>請在底下上傳本次作業，你可以多次上傳。</li>
+                  <li>本次考試需將執行指令寫入題目要求的檔案名稱.m檔 (MATLAB script file)</li>                                                   
+                  <li>"題目"、所有".m檔"請一起放進資料夾，使用zip壓縮。</li>                                                                                    
+                  <li>檔名：<strong>學號_mid.zip</strong></li>               
                   </ul>
               </li>
-              <li><h3>期限：2016-10-20 13:00 (這次有提早喔！)</h3></li>
+              <li><h3>考試時間：2016-11-24 13:10~15:00</h3></li>
               <li>
               其他注意事項：              
                   <ul>
-                  <li>本堂課名是「科學計算軟體」，請勿交其他程式課的作業。</li> 
-                  <li>上傳前請確認壓縮檔內是否有三個檔案，並且用<strong>zip</strong>壓縮（勿使用 .7z、.rar 等其他壓縮格式）。</li>
+                  <li>上傳前請確認壓縮檔內是否有所有檔案，並且用<strong>zip</strong>壓縮（勿使用 .7z、.rar 等其他壓縮格式）。</li>
                   <li>請確認題目檔是否是自己的學號。</li>                                                                                                                          
-                  <li>作業請自己寫！不會寫可以跟同學、老師或助教討論！</li>
+                  <li>有問題請舉手發問，請不要跟同學交談。</li>
                   </ul>
               </li>               
 
@@ -179,6 +178,14 @@ var site_url="<?php echo $url;?>"
       <div class="panel panel-default">
         <div class="panel-body">
           <h3>考試說明</h3>
+          <ul>
+            <li>考試時間：11/24(四)13:10~15:00</li>
+            <li>請確認是否坐在指定電腦</li>            
+            <li>不得使用個人隨身電子產品，僅能使用電腦室公用電腦</li>
+            <li>禁止上網，但可以使用 MATLAB 中的 Documentation</li>
+            <li>尊重自己，請勿作弊</li>
+            
+          </ul>          
           <form class="form-inline" method="post" action="">
           <center><h4><input type="checkbox" id="accept" name="accept" value="1"> 我願意遵守考試規則！</h4></center>
           <center>
