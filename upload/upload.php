@@ -22,7 +22,8 @@ if (!empty($_FILES)) {
     $tempFile = $_FILES['userfile']['tmp_name'];          //3             
       
     $_FILES['userfile']['attempt']=$attempt+1;  
-    $targetPath = dirname( __FILE__ ) . $ds. $storeFolder . $ds . $name.$ds;  //4
+    // dirname( __FILE__ )
+    $targetPath = '/home/andylee' . $ds. $storeFolder . $ds . $name.$ds;  //4
      
     $targetFile =  $targetPath. $_FILES['userfile']['name'];  //5
     
