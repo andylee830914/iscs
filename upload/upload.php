@@ -30,7 +30,7 @@ if (!empty($_FILES)) {
 
     if(!file_exists($targetPath)){
         mkdir($targetPath, 0777);
-        chmod($targetPath, 0777);
+        chmod($targetPath, 0775);
     }
     if(in_array($_FILES['userfile']['type'],$accept)){
         if(mysql_num_rows($result3)!=0){
