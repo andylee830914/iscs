@@ -26,11 +26,11 @@ if (!empty($_FILES)) {
     $targetPath = '/home/andylee' . $ds. $storeFolder . $ds . $name.$ds;  //4
      
     $targetFile =  $targetPath. $_FILES['userfile']['name'];  //5
-    chmod($targetPath, 0775);
     
 
     if(!file_exists($targetPath)){
         mkdir($targetPath, 0777);
+        chmod($targetPath, 0775);
     }
     if(in_array($_FILES['userfile']['type'],$accept)){
         if(mysql_num_rows($result3)!=0){
@@ -38,7 +38,11 @@ if (!empty($_FILES)) {
             rename($targetPath.$oldname,$targetPath.'v'.$attempt.'_'.$oldname);
         }
         move_uploaded_file($tempFile,$targetFile);
-        chmod($targetFile, 0775);        
+        chmod($targetFile, 0775);   
+        chmod($targetPath.'C14036023_HW2.zip', 0775);    
+        chmod($targetPath.'C14041052_HW3.zip', 0775);    
+            
+             
         $quy2="INSERT INTO midterm (ip,time, moodleid, attempt,filename) VALUES ('".$ip."','".$date."','".$moodleid."','".$_FILES['userfile']['attempt']."',  '".$_FILES['userfile']['name']."')";
         mysql_query($quy2);
     }else{
