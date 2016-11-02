@@ -13,7 +13,7 @@ require_once('../latex/MATLABTemplate.php');
 $quy="select * from user where idnumber='".$name."'";
 $result=mysql_query($quy);
 $moodleid=mysql_result($result,0,1);
-$id=mysql_result($result,0,1);
+$id=mysql_result($result,0,0);
 $hw=$id % 2;
 $test = "";
 if(isset($_GET['t'])) {
