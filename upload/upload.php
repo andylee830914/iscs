@@ -39,8 +39,6 @@ if (!empty($_FILES)) {
         }
         move_uploaded_file($tempFile,$targetFile);
         chmod($targetFile, 0775);   
-        chmod($targetPath.'C14036023_HW2.zip', 0775);    
-        chmod($targetPath.'C14041052_HW3.zip', 0775);    
             
              
         $quy2="INSERT INTO midterm (ip,time, moodleid, attempt,filename) VALUES ('".$ip."','".$date."','".$moodleid."','".$_FILES['userfile']['attempt']."',  '".$_FILES['userfile']['name']."')";
