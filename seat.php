@@ -1,3 +1,6 @@
+<?php 
+$total=64;
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,9 +26,13 @@
       <div class="col-md-1"></div>          
       <div class="col-md-1">      
         <table class="table  table-bordered">
-<?php for ($i=0; $i < 2; $i++) { 
-          echo '<tr><td>'.$i.'-1</td></tr>';
+<?php for ($i=0; $i < 2; $i++) {
+          $total1=$total-1;
+          echo '<tr><td>'.$total1.'<br>你的名字</td></tr>';
+          $total=$total+1;
 }
+          $total=$total-3;
+
 ?>
         </table>
       </div>
@@ -33,8 +40,13 @@
       <div class="col-md-2">
         <table class="table  table-bordered">
 <?php for ($i=0; $i < 7; $i++) { 
-          echo '<tr><td>'.$i.'-1</td><td>'.$i.'-2</td></tr>';
+          $total1=$total-7;
+          $total2=$total-14;
+          echo '<tr><td>'.$total1.'<br>你的名字</td><td>'.$total2.'<br>你的名字</td></tr>';
+          $total=$total+1;
 }
+          $total=$total-21;
+
 ?>
         </table>
 
@@ -42,23 +54,36 @@
       <div class="col-md-2">
         <table class="table  table-bordered">
 <?php for ($i=0; $i < 8; $i++) { 
-          echo '<tr><td>'.$i.'-1</td><td>'.$i.'-2</td></tr>';
+          $total1=$total-8;
+          $total2=$total-16;
+          echo '<tr><td>'.$total1.'<br>你的名字</td><td>'.$total2.'<br>你的名字</td></tr>';
+          $total=$total+1;
 }
+          $total=$total-24;
+
 ?>
         </table>
       </div>
       <div class="col-md-2">
         <table class="table  table-bordered">
 <?php for ($i=0; $i < 8; $i++) { 
-          echo '<tr><td>'.$i.'-1</td><td>'.$i.'-2</td></tr>';
+          $total1=$total-8;
+          $total2=$total-16;
+          echo '<tr><td>'.$total1.'<br>你的名字</td><td>'.$total2.'<br>你的名字</td></tr>';
+          $total=$total+1;
 }
+          $total=$total-24;
+
 ?>
         </table>
       </div>
       <div class="col-md-2">
         <table class="table  table-bordered">
 <?php for ($i=0; $i < 8; $i++) { 
-          echo '<tr><td>'.$i.'-1</td><td>'.$i.'-2</td></tr>';
+          $total1=$total-8;
+          $total2=$total-16;
+          echo '<tr><td>'.$total1.'<br>你的名字</td><td>'.$total2.'<br>你的名字</td></tr>';
+          $total=$total+1;
 }
 ?>
         </table>
