@@ -49,7 +49,7 @@
                 </ul>
               </li>                   
               <?php }else{?>
-              <li><a href="<?php echo $url;?>result/visual.php">繳交情況</a></li>              
+              <!--<li><a href="<?php echo $url;?>result/visual.php">繳交情況</a></li>-->              
               <?php }?>
               <?php }?>
               
