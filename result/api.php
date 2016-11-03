@@ -22,21 +22,31 @@ function get_all_assignment($assid){
 }
 
 $data=get_all_assignment($assignment);
+$minite=array('25746'=>"1476892800",'26117'=>"1477544400",'26407'=>"1478102400");
+$init=$minite[$assignment]; 
 foreach ($data as $key => $value) {
     date_default_timezone_set('Asia/Taipei');
-    $index=date('Y-m-d H:00', $value->timemodified);
-    $time[$index]++;
+    if(isset($minite[$assignment])){
+        $now=round(($value->timemodified-$init)/ ( 60 * 5 ));        
+        $index=date('Y-m-d H:i:00', $init+$now*60*5);
+        $time[$index]++;  
+    }else{
+        $index=date('Y-m-d H:00', $value->timemodified);
+        $time[$index]++;
+        
+    }
 }
 $timekey=array_keys($time);
 sort($timekey);
-for ($i=0; $i < count($timekey); $i++) { 
-    foreach ($time as $key1 => $value1) {
+
+        for ($i=0; $i < count($timekey); $i++) { 
+                foreach ($time as $key1 => $value1) {
                     if ($key1==$timekey[$i]) {
                         $newdata[$i]->time        = $timekey[$i];
                         $newdata[$i]->total= $value1;
                     }
                 }
-}
+        }
 
 $jsondata=json_encode($newdata);
 print_r($jsondata);

@@ -45,6 +45,8 @@ if (isset($_POST['username'])) {
     $updateip="UPDATE user set loginip='".$ip."' WHERE idnumber='".$logindata['username']."'";
     mysql_query($updateip);
     echo '<meta http-equiv=REFRESH CONTENT=0;url=index.php>';
+  }else{
+    $error="密碼錯誤！";    
   }
   
 }
