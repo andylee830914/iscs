@@ -23,6 +23,7 @@ $(document).ready(function(){
                             break;
                         
                     }
+                    console.log(data);                    
                     console.log("error"+data.error);
 
                 }else{
