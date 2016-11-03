@@ -38,8 +38,8 @@ if(isset($_GET['t']) && $_GET['pass']==md5('iscs2016midterm'.$name)) {
 
 	try {
 		CLatexTemplate::download($data, $url.'latex/mid1/mid1_'.$hw.'.tex', $name.'_MID.pdf');
-
-    $quy2="INSERT INTO download (moodleid,time, download, hw) VALUES ('".$moodleid."','".$date."','midpdf".$hw."',  '105')";
+    //remember to change parameter!!
+    $quy2="INSERT INTO download (moodleid,time, download, hw) VALUES ('".$moodleid."','".$date."','midpdf".$hw."',  '105t')";
     mysql_query($quy2);
     
 	} catch(Exception $e) {
@@ -72,8 +72,9 @@ var site_url="<?php echo $url;?>"
       <?php include('../navbar.php');?>
 
       <!-- Main component for a primary marketing message or call to action -->
-      <h2>期中上機考</h2>
-      <?php if($_POST['testpass']=="20161023"){?>
+      <h2>期中上機考測試</h2>
+      <div class="alert alert-warning" role="alert">今日進行期中考電腦測試，電腦、題目下載、檔案上傳有任何問題請立刻向助教反應！</div>
+      <?php if($_POST['testpass']=="iscsmidterm"){?>
       <?php 
   $ip         = $_SERVER['REMOTE_ADDR'];
   $confirm    = $_POST['accept'];
