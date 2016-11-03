@@ -38,7 +38,9 @@ if (!empty($_FILES)) {
             rename($targetPath.$oldname,$targetPath.'v'.$attempt.'_'.$oldname);
         }
         move_uploaded_file($tempFile,$targetFile);
-        chmod($targetFile, 0775);        
+        chmod($targetFile, 0775);   
+            
+             
         $quy2="INSERT INTO midterm (ip,time, moodleid, attempt,filename) VALUES ('".$ip."','".$date."','".$moodleid."','".$_FILES['userfile']['attempt']."',  '".$_FILES['userfile']['name']."')";
         mysql_query($quy2);
     }else{
