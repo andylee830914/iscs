@@ -40,6 +40,8 @@ if (isset($_POST['username'])) {
     setcookie("user",ucfirst($logindata['username']), time()+3600*5);
     setcookie("role",md5($name),time()+3600*5);
     echo '<meta http-equiv=REFRESH CONTENT=0;url=index.php>';
+  }else{
+    $error="密碼錯誤！";    
   }
   
 }
