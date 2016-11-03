@@ -1,0 +1,47 @@
+% This file is a valid PHP file and also a valid LaTeX file
+% When processed with LaTeX, it will generate a blank template
+% Loading with PHP will fill it with details
+
+\documentclass[12pt,a4paper]{article}
+% Required for proper escaping
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+%\usepackage{ctex}
+%\XeTeXlinebreaklocale "zh"
+%\XeTeXlinebreakskip = 0pt plus 1pt
+\usepackage{CJK}
+\usepackage{graphicx}
+
+% Make placeholders visible
+\newcommand{\placeholder}[1]{\textbf{$<$ #1 $>$}}
+
+% Defaults for each variable
+\newcommand{\idnumber}{\placeholder{Student ID}}
+\newcommand{\moodleid}{\placeholder{ID}}
+
+
+% Fill in
+% <?php echo "\n" . "\\renewcommand{\\idnumber}{" . CLatexTemplate::escape($data['idnumber']) . "}\n"; ?>
+% <?php echo "\n" . "\\renewcommand{\\moodleid}{" . CLatexTemplate::escape($data['moodleid']) . "}\n"; ?>
+
+% LaTeX code for the invoice
+\usepackage{tabularx}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\begin{document}
+\begin{CJK}{UTF8}{bsmi}
+\begin{flushleft}Introduction to Scientific Computing Software HW8
+\\Student ID : \idnumber{}\end{flushleft}
+
+牛頓法求根
+\begin{enumerate}
+\item 請使用 mupad 計算函數 $f(x)=e^x-1.5-\tan^{-1}x$ 的微分，同時將該函數以及其微分分別儲存成 myfun.m 及 myfund.m，並改寫成 function。
+\item 請寫一個 mynewton.m 函數進行牛頓法求 $f(x)=0$ 的根，參數：起始值、誤差、最大迭代次數，回傳值：計算結果。
+\item 請寫一個 hw8.m，執行 mynewton 函數，起始點為 $x_0=-7$。
+
+\end{enumerate}
+\end{CJK}
+\end{document}

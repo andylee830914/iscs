@@ -10,6 +10,7 @@
 %\XeTeXlinebreakskip = 0pt plus 1pt
 \usepackage{CJK}
 \usepackage{graphicx}
+
 % Make placeholders visible
 \newcommand{\placeholder}[1]{\textbf{$<$ #1 $>$}}
 
@@ -32,7 +33,7 @@
 
 \begin{document}
 \begin{CJK}{UTF8}{bsmi}
-\begin{flushleft}Introduction to Scientific Computing Software HW5
+\begin{flushleft}Introduction to Scientific Computing Software HW6
 \\Student ID : \idnumber{}\end{flushleft}
 
 請利用上週程式碼來完成作業。以下的 $t$ 皆是 $t=1:44100$
@@ -41,7 +42,7 @@
 \begin{itemize} 
 
 
-\item $f_1(t)=\left\{\begin{array}{ll}0.5&,0 < t\le50 \\ -0.5 &,50 < t \le 100\end{array}\right.$
+\item $f_1(t)=\left\{\begin{array}{ll}0.5&,0 \le t < 50 \\ -0.5 &,50 \le t < 100\end{array}\right.$
 \item $f_1(t)=f_1(t+100)$
 \end{itemize}
 \item 請造出一個陣列長度為 44100 的 $\sin$ 波
@@ -53,8 +54,17 @@
 \item 利用邏輯陣列來造出以下新的波
 \begin{itemize}
 
-\item $f_3(t)=\left\{\begin{array}{ll}0.5&, f_2>0\ \mbox{and}\ f_2>f_1 \\ -0.5 &,f_2<0\ \mbox{and}\ f_2<f_1 \\f_2(t) & ,\mbox{otherwise} \end{array}\right.$
-\item 示意圖 \\ \includegraphics[width=12cm]{amp2-1}
+\item $f_3(t)=\left\{\begin{array}{ll}0.5&, f_2>10^{-10}\ \mbox{and}\ f_2>f_1 \\ -0.5 &,f_2<-10^{-10}\ \mbox{and}\ f_2<f_1 \\f_2(t) & ,\mbox{otherwise} \end{array}\right.$
+\item 示意圖 \\ \includegraphics[width=12cm]{/home/www/html/iscs/latex/hw6/amp2-1}
+\end{itemize}
+\item 繳交格式
+\begin{itemize}
+\item  畫出 $f_3$ 與 $f_2$ 的疊圖
+\item  範圍 $12345\le t \le 12845, -3\le y \le 3$
+\item  $f_3$圖使用 '.' 樣式
+\item ``學號.m檔"、``結果截圖"請一起放進資料夾，使用zip壓縮
+\item  檔名：學號.zip
+\item  plot函數的title: 學號  姓名
 \end{itemize}
 \end{enumerate}
 \end{CJK}
