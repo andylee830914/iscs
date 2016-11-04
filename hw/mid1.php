@@ -11,6 +11,8 @@ require_once('../latex/MATLABTemplate.php');
 
 
 $quy="select * from user where idnumber='".$name."'";
+$midquy="select ip.id,user.moodleid from user left join ip on ip.moodleid=user.moodleid where user.idnumber='".$name."'";
+
 $result=mysql_query($quy);
 $moodleid=mysql_result($result,0,1);
 $quy3="select * from midterm where moodleid='".$moodleid."' ORDER BY time DESC";

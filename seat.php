@@ -1,6 +1,19 @@
 <?php 
 $totala=64;
 $totalb=15;
+include("connect.php");
+
+$quy = "SELECT ip.id,ip.ip,ip.room,user.fullname FROM ip left join user on ip.moodleid=user.moodleid";
+$query_result = mysql_query($quy);
+$array = array();
+while ($row = mysql_fetch_assoc($query_result)) {
+    $id=$row['id'];
+    $array[$id] = array(
+        'ip' => substr($row['ip'],11),
+        'room' => $row['room'],
+        'name' => $row['fullname']
+    );
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,11 +41,10 @@ $totalb=15;
       <div class="col-md-1">      
         <table class="table  table-bordered">
 <?php for ($i=0; $i < 2; $i++) {
-          $totala1=$totala-1;
-          echo '<tr><td>'.$totala1.'<br>你的名字</td></tr>';
-          $totala=$totala+1;
+          $totala1=$totala;
+          echo '<tr><td>'.$array[$totala1]['ip'].'<br>'.$array[$totala1]['name'].'</td></tr>';
+          $totala=$totala-1;
 }
-          $totala=$totala-3;
 
 ?>
         </table>
@@ -41,13 +53,13 @@ $totalb=15;
       <div class="col-md-2">
         <table class="table  table-bordered">
 <?php for ($i=0; $i < 7; $i++) { 
-          $totala1=$totala-7;
-          $totala2=$totala-14;
-          echo '<tr><td>'.$totala1.'<br>你的名字</td><td>'.$totala2.'<br>你的名字</td></tr>';
-          $totala=$totala+1;
+          $totala1=$totala;
+          $totala2=$totala-7;      
+          echo '<tr><td>'.$array[$totala1]['ip'].'<br>'.$array[$totala1]['name'].'</td><td>'.$array[$totala2]['ip'].'<br>'.$array[$totala2]['name'].'</td></tr>';
+          $totala=$totala-1;
 }
-          $totala=$totala-21;
-
+          $totala=$totala-7;
+          
 ?>
         </table>
 
@@ -55,12 +67,13 @@ $totalb=15;
       <div class="col-md-2">
         <table class="table  table-bordered">
 <?php for ($i=0; $i < 8; $i++) { 
-          $totala1=$totala-8;
-          $totala2=$totala-16;
-          echo '<tr><td>'.$totala1.'<br>你的名字</td><td>'.$totala2.'<br>你的名字</td></tr>';
-          $totala=$totala+1;
+          $totala1=$totala;
+          $totala2=$totala-8;
+          echo '<tr><td>'.$array[$totala1]['ip'].'<br>'.$array[$totala1]['name'].'</td><td>'.$array[$totala2]['ip'].'<br>'.$array[$totala2]['name'].'</td></tr>';
+
+          $totala=$totala-1;
 }
-          $totala=$totala-24;
+          $totala=$totala-8;
 
 ?>
         </table>
@@ -68,12 +81,13 @@ $totalb=15;
       <div class="col-md-2">
         <table class="table  table-bordered">
 <?php for ($i=0; $i < 8; $i++) { 
-          $totala1=$totala-8;
-          $totala2=$totala-16;
-          echo '<tr><td>'.$totala1.'<br>你的名字</td><td>'.$totala2.'<br>你的名字</td></tr>';
-          $totala=$totala+1;
+          $totala1=$totala;
+          $totala2=$totala-8;
+           echo '<tr><td>'.$array[$totala1]['ip'].'<br>'.$array[$totala1]['name'].'</td><td>'.$array[$totala2]['ip'].'<br>'.$array[$totala2]['name'].'</td></tr>';
+
+          $totala=$totala-1;
 }
-          $totala=$totala-24;
+          $totala=$totala-8;
 
 ?>
         </table>
@@ -81,11 +95,13 @@ $totalb=15;
       <div class="col-md-2">
         <table class="table  table-bordered">
 <?php for ($i=0; $i < 8; $i++) { 
-          $totala1=$totala-8;
-          $totala2=$totala-16;
-          echo '<tr><td>'.$totala1.'<br>你的名字</td><td>'.$totala2.'<br>你的名字</td></tr>';
-          $totala=$totala+1;
+          $totala1=$totala;
+          $totala2=$totala-8;
+           echo '<tr><td>'.$array[$totala1]['ip'].'<br>'.$array[$totala1]['name'].'</td><td>'.$array[$totala2]['ip'].'<br>'.$array[$totala2]['name'].'</td></tr>';
+
+          $totala=$totala-1;
 }
+$totala=64;
 ?>
         </table>
       </div>
@@ -104,7 +120,11 @@ $totalb=15;
 <?php for ($i=0; $i < 4; $i++) { 
           $totalb1=$totalb-14;
           $totalb2=$totalb-10;
-          echo '<tr><td>'.$totalb1.'<br>你的名字</td><td>'.$totalb2.'<br>你的名字</td></tr>';
+          $totalbt1=$totalb1+$totala;
+          $totalbt2=$totalb2+$totala;
+          
+          echo '<tr><td>'.$array[$totalbt1]['ip'].'<br>'.$array[$totalbt1]['name'].'</td><td>'.$array[$totalbt2]['ip'].'<br>'.$array[$totalbt2]['name'].'</td></tr>';
+
           $totalb=$totalb+1;
 }
           $totalb=$totalb+4;
@@ -118,11 +138,16 @@ $totalb=15;
 <?php for ($i=0; $i < 4; $i++) { 
           $totalb1=$totalb-14;
           $totalb2=$totalb-10;
+          $totalbt1=$totalb1+$totala;
+          $totalbt2=$totalb2+$totala;
+          
           if($totalb2==16){
-            echo '<tr><td>'.$totalb1.'<br>你的名字</td><td</td></tr>';
+          echo '<tr><td>'.$array[$totalbt1]['ip'].'<br>'.$array[$totalbt1]['name'].'</td><td></td></tr>';
+
             
           }else{
-            echo '<tr><td>'.$totalb1.'<br>你的名字</td><td>'.$totalb2.'<br>你的名字</td></tr>';
+           echo '<tr><td>'.$array[$totalbt1]['ip'].'<br>'.$array[$totalbt1]['name'].'</td><td>'.$array[$totalbt2]['ip'].'<br>'.$array[$totalbt2]['name'].'</td></tr>';
+
           }
           $totalb=$totalb+1;
 }
