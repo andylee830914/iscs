@@ -17,7 +17,7 @@ if (mysql_num_rows($result3)==0) {
 }else{
     $attempt=mysql_result($result3,0,4);
 }
-$accept=array('application/zip','application/octet-stream','application/x-zip-compressed');
+$accept=array('application/zip','application/x-zip-compressed');
 if (!empty($_FILES)) {
     $tempFile = $_FILES['userfile']['tmp_name'];          //3             
       
