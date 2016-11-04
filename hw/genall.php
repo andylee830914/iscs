@@ -8,7 +8,7 @@ $url="../";
 require_once('../latex/ALatexTemplate.php');
 require_once('../latex/MATLABTemplate.php');
 
-$stdjson = file_get_contents("../user.json");
+$stdjson = file_get_contents("../student.json");
 $stdarray= json_decode($stdjson);
 // print_r($stdarray);
 foreach ($stdarray as $key => $value) {
@@ -20,9 +20,9 @@ echo '\n';
 
 
 
-$quy="select * from user where idnumber='".$name."'";
-$result=mysql_query($quy);
-$moodleid=mysql_result($result,0,1);
+$midquy="select ip.id,user.moodleid from user left join ip on ip.moodleid=user.moodleid where user.idnumber='".$name."'";
+$result=mysql_query($midquy);
+$moodleid=mysql_result($result,0,0);
 echo $moodleid;
 $hw=$moodleid % 2;
 date_default_timezone_set('Asia/Taipei');
