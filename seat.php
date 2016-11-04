@@ -1,5 +1,6 @@
 <?php 
-$total=64;
+$totala=64;
+$totalb=15;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,11 +28,11 @@ $total=64;
       <div class="col-md-1">      
         <table class="table  table-bordered">
 <?php for ($i=0; $i < 2; $i++) {
-          $total1=$total-1;
-          echo '<tr><td>'.$total1.'<br>你的名字</td></tr>';
-          $total=$total+1;
+          $totala1=$totala-1;
+          echo '<tr><td>'.$totala1.'<br>你的名字</td></tr>';
+          $totala=$totala+1;
 }
-          $total=$total-3;
+          $totala=$totala-3;
 
 ?>
         </table>
@@ -40,12 +41,12 @@ $total=64;
       <div class="col-md-2">
         <table class="table  table-bordered">
 <?php for ($i=0; $i < 7; $i++) { 
-          $total1=$total-7;
-          $total2=$total-14;
-          echo '<tr><td>'.$total1.'<br>你的名字</td><td>'.$total2.'<br>你的名字</td></tr>';
-          $total=$total+1;
+          $totala1=$totala-7;
+          $totala2=$totala-14;
+          echo '<tr><td>'.$totala1.'<br>你的名字</td><td>'.$totala2.'<br>你的名字</td></tr>';
+          $totala=$totala+1;
 }
-          $total=$total-21;
+          $totala=$totala-21;
 
 ?>
         </table>
@@ -54,12 +55,12 @@ $total=64;
       <div class="col-md-2">
         <table class="table  table-bordered">
 <?php for ($i=0; $i < 8; $i++) { 
-          $total1=$total-8;
-          $total2=$total-16;
-          echo '<tr><td>'.$total1.'<br>你的名字</td><td>'.$total2.'<br>你的名字</td></tr>';
-          $total=$total+1;
+          $totala1=$totala-8;
+          $totala2=$totala-16;
+          echo '<tr><td>'.$totala1.'<br>你的名字</td><td>'.$totala2.'<br>你的名字</td></tr>';
+          $totala=$totala+1;
 }
-          $total=$total-24;
+          $totala=$totala-24;
 
 ?>
         </table>
@@ -67,12 +68,12 @@ $total=64;
       <div class="col-md-2">
         <table class="table  table-bordered">
 <?php for ($i=0; $i < 8; $i++) { 
-          $total1=$total-8;
-          $total2=$total-16;
-          echo '<tr><td>'.$total1.'<br>你的名字</td><td>'.$total2.'<br>你的名字</td></tr>';
-          $total=$total+1;
+          $totala1=$totala-8;
+          $totala2=$totala-16;
+          echo '<tr><td>'.$totala1.'<br>你的名字</td><td>'.$totala2.'<br>你的名字</td></tr>';
+          $totala=$totala+1;
 }
-          $total=$total-24;
+          $totala=$totala-24;
 
 ?>
         </table>
@@ -80,15 +81,57 @@ $total=64;
       <div class="col-md-2">
         <table class="table  table-bordered">
 <?php for ($i=0; $i < 8; $i++) { 
-          $total1=$total-8;
-          $total2=$total-16;
-          echo '<tr><td>'.$total1.'<br>你的名字</td><td>'.$total2.'<br>你的名字</td></tr>';
-          $total=$total+1;
+          $totala1=$totala-8;
+          $totala2=$totala-16;
+          echo '<tr><td>'.$totala1.'<br>你的名字</td><td>'.$totala2.'<br>你的名字</td></tr>';
+          $totala=$totala+1;
 }
 ?>
         </table>
       </div>
       <div class="col-md-1"></div>          
+      
+      </div>
+
+      <div class="row container-fluid">
+      <center>      
+      <h3>研究生電腦教室</h3>  
+      </center>
+      <div class="col-md-2"></div>          
+        
+      <div class="col-md-4">
+        <table class="table  table-bordered">
+<?php for ($i=0; $i < 4; $i++) { 
+          $totalb1=$totalb-14;
+          $totalb2=$totalb-10;
+          echo '<tr><td>'.$totalb1.'<br>你的名字</td><td>'.$totalb2.'<br>你的名字</td></tr>';
+          $totalb=$totalb+1;
+}
+          $totalb=$totalb+4;
+
+?>
+        </table>
+
+      </div>
+      <div class="col-md-4">
+        <table class="table  table-bordered">
+<?php for ($i=0; $i < 4; $i++) { 
+          $totalb1=$totalb-14;
+          $totalb2=$totalb-10;
+          if($totalb2==16){
+            echo '<tr><td>'.$totalb1.'<br>你的名字</td><td</td></tr>';
+            
+          }else{
+            echo '<tr><td>'.$totalb1.'<br>你的名字</td><td>'.$totalb2.'<br>你的名字</td></tr>';
+          }
+          $totalb=$totalb+1;
+}
+
+?>
+        </table>
+      </div>
+
+      <div class="col-md-2"></div>          
       
       </div>
       
