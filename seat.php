@@ -1,4 +1,7 @@
-<?php 
+<?php
+if (!isset($_COOKIE["token"])) {
+      echo '<meta http-equiv=REFRESH CONTENT=0;url='.$url.'login.php>';
+}
 $totala=64;
 $totalb=15;
 include("connect.php");
