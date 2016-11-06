@@ -11,10 +11,11 @@ require_once('../latex/MATLABTemplate.php');
 
 
 $quy="select * from user where idnumber='".$name."'";
-$midquy="select ip.id,user.moodleid from user left join ip on ip.moodleid=user.moodleid where user.idnumber='".$name."'";
+$midquy="select ip.id,user.moodleid,user.fullname from user left join ip on ip.moodleid=user.moodleid where user.idnumber='".$name."'";
 
 $result=mysql_query($quy);
 $moodleid=mysql_result($result,0,1);
+$fullname=mysql_result($result,0,2);
 $quy3="select * from midterm where moodleid='".$moodleid."' ORDER BY time DESC";
 $result3=mysql_query($quy3);
 if(mysql_num_rows($result3)==0){
@@ -36,7 +37,8 @@ if(isset($_GET['t']) && $_GET['pass']==md5('iscs2016midterm'.$name)) {
 	$test = $_GET['t'];
 	$data = array(
 			'idnumber' => $name,
-      'moodleid' => $moodleid
+      'moodleid' => $moodleid,
+      'name'	   => $fullname
 	);
 
 	try {
