@@ -12,7 +12,7 @@ $array = array();
 while ($row = mysql_fetch_assoc($query_result)) {
     $id=$row['id'];
     if($row['ip']==$ip){
-        $h=' class="warning"';
+        $h=' class="danger"';
     }else{
         $h='';
     }
