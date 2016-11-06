@@ -6,7 +6,7 @@ if (!isset($_COOKIE["token"])) {
 include("../connect.php");
 
 $name=$_COOKIE["user"];
-require_once('../latex/CLatexTemplate.php');
+require_once('../latex/LatexTemplate.php');
 require_once('../latex/MATLABTemplate.php');
 
 
@@ -23,7 +23,8 @@ if(mysql_num_rows($result3)==0){
   $filename=mysql_result($result3,0,5);
   
 }
-$hw=$moodleid % 2;
+// $hw=$moodleid % 2;
+$hw=0;
 date_default_timezone_set('Asia/Taipei');
 $date = date('Y-m-d H:i:s');  
 
@@ -39,7 +40,7 @@ if(isset($_GET['t']) && $_GET['pass']==md5('iscs2016midterm'.$name)) {
 	);
 
 	try {
-		CLatexTemplate::download($data, $url.'latex/mid1/mid1_'.$hw.'.tex', $name.'_MID.pdf');
+		LatexTemplate::download($data, $url.'latex/mid1/mid2_'.$hw.'.tex', $name.'_MID.pdf');
     //remember to change parameter!!
     $quy2="INSERT INTO download (moodleid,time, download, hw) VALUES ('".$moodleid."','".$date."','midpdf".$hw."',  '105t')";
     mysql_query($quy2);

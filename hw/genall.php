@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+// defined('BASEPATH') OR exit('No direct script access allowed');
 
 include("../connect.php");
 
@@ -20,10 +20,11 @@ echo '\n';
 
 
 
-$midquy="select ip.id,user.moodleid from user left join ip on ip.moodleid=user.moodleid where user.idnumber='".$name."'";
+$midquy="select ip.id,user.moodleid,user.fullname from user left join ip on ip.moodleid=user.moodleid where user.idnumber='".$name."'";
 $result=mysql_query($midquy);
 $moodleid=mysql_result($result,0,0);
-echo $moodleid;
+$fullname=mysql_result($result,0,2);
+echo $fullname;
 $hw=$moodleid % 2;
 date_default_timezone_set('Asia/Taipei');
 $date = date('Y-m-d H:i:s');  
@@ -32,12 +33,13 @@ $date = date('Y-m-d H:i:s');
 	// Make the LaTeX file and send it through
 
 	$data = array(
-			'idnumber' => $name,
-      'moodleid' => $moodleid
+		'idnumber' => $name,
+    	'moodleid' => $moodleid,
+		'name'	   => $fullname
 	);
 
 	try {
-		CLatexTemplate::download($data, '/Library/Server/Web/Data/Sites/Default/iscs/latex/mid1/mid1_'.$hw.'.tex', $name.'_MID.pdf');
+		CLatexTemplate::download($data, '/Library/Server/Web/Data/Sites/Default/iscs/latex/mid1/mid2_'.$hw.'.tex', $name.'_MID.pdf');
     
 
     

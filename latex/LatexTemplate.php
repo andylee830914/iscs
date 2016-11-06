@@ -32,7 +32,7 @@ class LatexTemplate {
 				escapeshellarg($tex_f));
 		chdir(sys_get_temp_dir());
 		exec($cmd, $foo, $ret);
-	
+		print_r($foo);
 		// No need for these files anymore
 		@unlink($tex_f);
 		@unlink($aux_f);

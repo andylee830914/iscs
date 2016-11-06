@@ -29,7 +29,7 @@ class CLatexTemplate {
 		file_put_contents($tex_f, ob_get_clean());
 	
 		// Run xelatex (Used because of native unicode and TTF font support)
-		$cmd = sprintf("/Library/TeX/texbin/pdflatex -interaction nonstopmode -halt-on-error %s",
+		$cmd = sprintf("/Library/TeX/texbin/xelatex -interaction nonstopmode -halt-on-error %s",
 				escapeshellarg($tex_f));
 		chdir(sys_get_temp_dir());
 		exec($cmd, $foo, $ret);
@@ -46,7 +46,7 @@ class CLatexTemplate {
 		}
 	
 		// Send through output
-		rename($pdf_f, '/Users/andylee830914/midall/'.$outp_file);
+		rename($pdf_f, '/Users/andylee/midall/'.$outp_file);
 		// $fp = fopen($pdf_f, 'rb');
 		// header('Content-Type: application/pdf');
 		// header('Content-Disposition: attachment; filename="' . $outp_file . '"' );
