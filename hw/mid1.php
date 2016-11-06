@@ -42,7 +42,7 @@ if(isset($_GET['t']) && $_GET['pass']==md5('iscs2016midterm'.$name)) {
 	);
 
 	try {
-		LatexTemplate::download($data, $url.'latex/mid1/mid2_'.$hw.'.tex', $name.'_MID.pdf');
+		LatexTemplate::download($data, $url.'latex/mid1/mid2_'.$hw.'.tex', $name.'_TEST.pdf');
     //remember to change parameter!!
     $quy2="INSERT INTO download (moodleid,time, download, hw) VALUES ('".$moodleid."','".$date."','midpdf".$hw."',  '105t')";
     mysql_query($quy2);
