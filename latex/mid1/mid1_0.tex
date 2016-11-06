@@ -11,15 +11,16 @@
 \usepackage{CJK}
 % Make placeholders visible
 \newcommand{\placeholder}[1]{\textbf{$<$ #1 $>$}}
-
+\begin{CJK}{UTF8}{bsmi}
 % Defaults for each variable
 \newcommand{\idnumber}{\placeholder{Student ID}}
 \newcommand{\moodleid}{\placeholder{ID}}
-
+\newcommand{\name}{\placeholder{NAME}}
 
 % Fill in
 % <?php echo "\n" . "\\renewcommand{\\idnumber}{" . CLatexTemplate::escape($data['idnumber']) . "}\n"; ?>
 % <?php echo "\n" . "\\renewcommand{\\moodleid}{" . CLatexTemplate::escape($data['moodleid']) . "}\n"; ?>
+% <?php echo "\n" . "\\renewcommand{\\name}{" . $data['name'] . "}\n"; ?>
 
 % LaTeX code for the invoice
 \usepackage{tabularx}
@@ -27,13 +28,34 @@
 \pagestyle{empty}
 \usepackage{amsmath}
 \usepackage{amssymb}
-
-
+\usepackage{url}
+\setcounter{page}{1}
+\pagenumbering{arabic}
 \begin{document}
-\begin{CJK}{UTF8}{bsmi}
-\begin{flushleft}Introduction to Scientific Computing Software HW4
-\\Student ID : \idnumber{}\end{flushleft}
 
+\begin{center}{\large Introduction to Scientific Computing Software}\end{center}
+
+\begin{center}\textbf{Name} : \underline{ \name{}}\qquad\qquad\qquad\textbf{Student ID} : \underline{ \idnumber{}}\end{center}
+
+\begin{center}
+\line(1,0){455}
+\end{center}
+\textbf{Guidelines for the test:}
+\begin{itemize}
+\item 上機考題目下載及檔案上傳網站 : \url{http://140.116.21.99/iscs/index.php}
+\item 請依照座位分配表就座，並確認網頁上塗色位置與你現在坐的位置相符。
+\item 使用工具僅限 matlab(及 Help)， 禁止使用其他任何 (網路及書面) 資源。
+\item 共五題
+\item 程式題注意事項：
+\begin{enumerate}
+\item 全部程式、圖檔及本題目電子檔先放入一資料夾 （\idnumber{}\_MID），使用 \texttt{zip} 壓縮後，至以上網址上傳（網站只接受 \texttt{zip} 壓縮檔）。
+\item 函數請依照題目要求命名，大小寫等請完全一樣。
+\item 請將畫出的圖輸出成 \texttt{jpg} 或 \texttt{png} 檔。
+\end{enumerate}
+\end{itemize}
+\begin{center}
+\line(1,0){455}
+\end{center}
 請使用 for-loop 和 if-else 來完成作業。
 \begin{enumerate}
 \item 方波
