@@ -5,18 +5,25 @@ if (!isset($_COOKIE["token"])) {
 $totala=64;
 $totalb=15;
 include("connect.php");
-
+$ip = $_SERVER['REMOTE_ADDR'];
 $quy = "SELECT ip.id,ip.ip,ip.room,user.fullname FROM ip left join user on ip.moodleid=user.moodleid";
 $query_result = mysql_query($quy);
 $array = array();
 while ($row = mysql_fetch_assoc($query_result)) {
     $id=$row['id'];
+    if($row['ip']==$ip){
+        $h=' class="warning"';
+    }else{
+        $h='';
+    }
     $array[$id] = array(
         'ip' => substr($row['ip'],11),
         'room' => $row['room'],
-        'name' => $row['fullname']
+        'name' => $row['fullname'],
+        'h'    => $h
     );
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +52,7 @@ while ($row = mysql_fetch_assoc($query_result)) {
         <table class="table  table-bordered">
 <?php for ($i=0; $i < 2; $i++) {
           $totala1=$totala;
-          echo '<tr><td>'.$array[$totala1]['ip'].'<br>'.$array[$totala1]['name'].'</td></tr>';
+          echo '<tr><td'.$array[$totala1]['h'].'>'.$array[$totala1]['ip'].'<br>'.$array[$totala1]['name'].'</td></tr>';
           $totala=$totala-1;
 }
 
@@ -58,7 +65,7 @@ while ($row = mysql_fetch_assoc($query_result)) {
 <?php for ($i=0; $i < 7; $i++) { 
           $totala1=$totala;
           $totala2=$totala-7;      
-          echo '<tr><td>'.$array[$totala1]['ip'].'<br>'.$array[$totala1]['name'].'</td><td>'.$array[$totala2]['ip'].'<br>'.$array[$totala2]['name'].'</td></tr>';
+          echo '<tr><td'.$array[$totala1]['h'].'>'.$array[$totala1]['ip'].'<br>'.$array[$totala1]['name'].'</td><td'.$array[$totala2]['h'].'>'.$array[$totala2]['ip'].'<br>'.$array[$totala2]['name'].'</td></tr>';
           $totala=$totala-1;
 }
           $totala=$totala-7;
@@ -72,7 +79,7 @@ while ($row = mysql_fetch_assoc($query_result)) {
 <?php for ($i=0; $i < 8; $i++) { 
           $totala1=$totala;
           $totala2=$totala-8;
-          echo '<tr><td>'.$array[$totala1]['ip'].'<br>'.$array[$totala1]['name'].'</td><td>'.$array[$totala2]['ip'].'<br>'.$array[$totala2]['name'].'</td></tr>';
+         echo '<tr><td'.$array[$totala1]['h'].'>'.$array[$totala1]['ip'].'<br>'.$array[$totala1]['name'].'</td><td'.$array[$totala2]['h'].'>'.$array[$totala2]['ip'].'<br>'.$array[$totala2]['name'].'</td></tr>';
 
           $totala=$totala-1;
 }
@@ -86,7 +93,7 @@ while ($row = mysql_fetch_assoc($query_result)) {
 <?php for ($i=0; $i < 8; $i++) { 
           $totala1=$totala;
           $totala2=$totala-8;
-           echo '<tr><td>'.$array[$totala1]['ip'].'<br>'.$array[$totala1]['name'].'</td><td>'.$array[$totala2]['ip'].'<br>'.$array[$totala2]['name'].'</td></tr>';
+          echo '<tr><td'.$array[$totala1]['h'].'>'.$array[$totala1]['ip'].'<br>'.$array[$totala1]['name'].'</td><td'.$array[$totala2]['h'].'>'.$array[$totala2]['ip'].'<br>'.$array[$totala2]['name'].'</td></tr>';
 
           $totala=$totala-1;
 }
@@ -100,7 +107,7 @@ while ($row = mysql_fetch_assoc($query_result)) {
 <?php for ($i=0; $i < 8; $i++) { 
           $totala1=$totala;
           $totala2=$totala-8;
-           echo '<tr><td>'.$array[$totala1]['ip'].'<br>'.$array[$totala1]['name'].'</td><td>'.$array[$totala2]['ip'].'<br>'.$array[$totala2]['name'].'</td></tr>';
+         echo '<tr><td'.$array[$totala1]['h'].'>'.$array[$totala1]['ip'].'<br>'.$array[$totala1]['name'].'</td><td'.$array[$totala2]['h'].'>'.$array[$totala2]['ip'].'<br>'.$array[$totala2]['name'].'</td></tr>';
 
           $totala=$totala-1;
 }
