@@ -17,7 +17,7 @@ if (mysql_num_rows($result3)==0) {
 }else{
     $attempt=mysql_result($result3,0,4);
 }
-$accept=array('application/zip','application/x-zip-compressed');
+$accept=array('application/zip','application/x-zip-compressed','application/octet-stream');
 if (!empty($_FILES)) {
     $tempFile = $_FILES['userfile']['tmp_name'];          //3             
       
@@ -32,7 +32,8 @@ if (!empty($_FILES)) {
         mkdir($targetPath, 0777);
         chmod($targetPath, 0775);
     }
-    if(in_array($_FILES['userfile']['type'],$accept)){
+    $checkzip=substr($_FILES['userfile']['name'],-3,3);
+    if(in_array($_FILES['userfile']['type'],$accept) && $checkzip=='zip'){
         if(mysql_num_rows($result3)!=0){
             $oldname=mysql_result($result3,0,5);
             rename($targetPath.$oldname,$targetPath.'v'.$attempt.'_'.$oldname);
