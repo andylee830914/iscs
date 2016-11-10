@@ -25,7 +25,7 @@ if(isset($_GET['t'])) {
 	);
 
 	try {
-		CLatexTemplate::download($data, $url.'latex/hw9/hw8_'.$hw.'.tex', $name.'_HW8.pdf');
+		CLatexTemplate::download($data, $url.'latex/hw9/hw8_'.$hw.'.tex', $name.'_HW9.pdf');
     $date       = date('Y-m-d H:i:s');
     $quy2="INSERT INTO download (moodleid,time, download, hw) VALUES ('".$moodleid."','".$date."','pdf".$hw."',  '9')";
     mysql_query($quy2);
