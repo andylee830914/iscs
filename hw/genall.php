@@ -5,7 +5,7 @@ include("../connect.php");
 
 $url="../";
   
-require_once('../latex/ALatexTemplate.php');
+require_once('../latex/LatexTemplate.php');
 require_once('../latex/MATLABTemplate.php');
 
 $stdjson = file_get_contents("../student.json");
@@ -39,7 +39,7 @@ $date = date('Y-m-d H:i:s');
 	);
 
 	try {
-		CLatexTemplate::download($data, '/Library/Server/Web/Data/Sites/Default/iscs/latex/mid1/mid2_'.$hw.'.tex', $name.'_MID.pdf');
+		LatexTemplate::export($data, '/Library/Server/Web/Data/Sites/Default/iscs/latex/mid1/mid2_'.$hw.'.tex', $name.'_MID.pdf');
     
 
     
