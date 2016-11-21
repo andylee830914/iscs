@@ -6,7 +6,7 @@ $totala=64;
 $totalb=15;
 include("connect.php");
 $ip = getHostByName(getHostName());
-echo $ip;
+print_r($_SERVER);
 $quy = "SELECT ip.id,ip.ip,ip.room,user.fullname FROM ip left join user on ip.moodleid=user.moodleid";
 $query_result = mysql_query($quy);
 $array = array();
