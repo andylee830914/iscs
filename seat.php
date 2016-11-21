@@ -5,8 +5,7 @@ if (!isset($_COOKIE["token"])) {
 $totala=64;
 $totalb=15;
 include("connect.php");
-$ip = getHostByName(getHostName());
-print_r($_SERVER);
+$ip = $_SERVER['REMOTE_ADDR'];
 $quy = "SELECT ip.id,ip.ip,ip.room,user.fullname FROM ip left join user on ip.moodleid=user.moodleid";
 $query_result = mysql_query($quy);
 $array = array();
@@ -14,7 +13,6 @@ while ($row = mysql_fetch_assoc($query_result)) {
     $id=$row['id'];
     if($row['ip']==$ip){
         $h=' class="danger"';
-        echo $h;
     }else{
         $h='';
     }
