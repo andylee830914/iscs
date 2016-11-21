@@ -30,7 +30,7 @@ $date = date('Y-m-d H:i:s');
 
 //$hw=0;
 $test = "";
-if(isset($_GET['t']) && $_GET['pass']==md5('iscs2016midterm'.$name)) {
+if(isset($_GET['t']) && $_GET['ppass']==md5('pdf2016midterm'.$name)) {
 	// Make the LaTeX file and send it through
 
 	$test = $_GET['t'];
@@ -41,9 +41,9 @@ if(isset($_GET['t']) && $_GET['pass']==md5('iscs2016midterm'.$name)) {
 	);
 
 	try {
-		LatexTemplate::download($data, $url.'latex/mid1/mid2_'.$hw.'.tex', $name.'_TEST.pdf');
+		LatexTemplate::download($data, $url.'latex/mid1/mid2_'.$hw.'.tex', $name.'_MID.pdf');
     //remember to change parameter!!
-    $quy2="INSERT INTO download (moodleid,time, download, hw) VALUES ('".$moodleid."','".$date."','midpdf".$hw."',  '105t')";
+    $quy2="INSERT INTO download (moodleid,time, download, hw) VALUES ('".$moodleid."','".$date."','midpdf".$hw."',  '105')";
     mysql_query($quy2);
     
 	} catch(Exception $e) {
@@ -51,6 +51,30 @@ if(isset($_GET['t']) && $_GET['pass']==md5('iscs2016midterm'.$name)) {
 	}
 
 }elseif(isset($_GET['t'])){
+    echo '<meta http-equiv=REFRESH CONTENT=0;url=mid1.php?error>';
+}
+
+if(isset($_GET['py']) && $_GET['mpass']==md5('mat2016midterm'.$name)) {
+	// Make the LaTeX file and send it through
+	$test = $_GET['t'];
+	$data = array(
+			'idnumber' => $name,
+      'moodleid' => $moodleid
+	);
+
+	try {
+    $root = realpath($_SERVER["DOCUMENT_ROOT"]);
+    $python="$root/iscs/latex/hw2/pymat.py";    
+    MATLABTemplate::download($python,$name,$moodleid);
+    //echo 'python /home/www/html/iscs/ta/pymat.py '.$moodleid;
+    $date       = date('Y-m-d H:i:s');
+    $quy3="INSERT INTO download (moodleid,time, download, hw) VALUES ('".$moodleid."','".$date."','midmat".$hw."',  '105')";
+    mysql_query($quy3);
+	} catch(Exception $e) {
+		echo $e -> getMessage();
+	}
+
+}elseif(isset($_GET['py'])){
     echo '<meta http-equiv=REFRESH CONTENT=0;url=mid1.php?error>';
 }
 
@@ -76,9 +100,9 @@ var site_url="<?php echo $url;?>"
       <?php include('../navbar.php');?>
 
       <!-- Main component for a primary marketing message or call to action -->
-      <h2>期中上機考測試</h2>
-      <div class="alert alert-warning" role="alert">今日進行期中考電腦測試，電腦、題目下載、檔案上傳有任何問題請立刻向助教反應！</div>
-      <?php if($_POST['testpass']=="iscsmidterm"){?>
+      <h2>期中上機考</h2>
+      <div class="alert alert-warning" role="alert">今日進行期中考，電腦、題目下載、檔案上傳有任何問題請立刻向助教反應！</div>
+      <?php if($_POST['testpass']=="iscs20161124"){?>
       <?php 
   $ip         = $_SERVER['REMOTE_ADDR'];
   $confirm    = $_POST['accept'];
@@ -120,11 +144,15 @@ var site_url="<?php echo $url;?>"
       <tr>
   <td class="col-md-6">
   <form>
-    <input type="hidden" name="pass" value="<?php echo md5('iscs2016midterm'.$name);?>"/>
+    <input type="hidden" name="ppass" value="<?php echo md5('pdf2016midterm'.$name);?>"/>
 		<input type="hidden" name="t" /> <input type="submit" class="btn btn-primary btn-lg" value="下載題目" />
 	</form>
   </td>
   <td class="col-md-6">
+    <form>
+    <input type="hidden" name="mpass" value="<?php echo md5('mat2016midterm'.$name);?>"/>
+		<input type="hidden" name="py" /> <input type="submit" class="btn btn-primary btn-lg" value="下載資料" />
+	</form>
   <!--<form>
 		<input type="hidden" name="py" /> <input type="submit" class="btn btn-primary btn-lg" value="下載資料" />
 	</form>-->
