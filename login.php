@@ -1,12 +1,12 @@
 <?php
 $url="";
 function moodle_check($array){
-        $domainname = "http://moodle.ncku.edu.tw";
+        $domainname = "http://140.116.90.218";
         $where['username'] = $array['username'];
         $where['password'] = $array['password'];
-        $where['service']  = 'ncku_moodle_app';
+        // $where['service']  = 'ncku_moodle_app';
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $domainname.'/login/token.php');
+        curl_setopt($ch, CURLOPT_URL, $domainname.'/iscs/token.php');
         curl_setopt($ch, CURLOPT_POST, true); // 啟用POST
         curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($where));
