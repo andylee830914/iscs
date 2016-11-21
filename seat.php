@@ -12,6 +12,7 @@ $query_result = mysql_query($quy);
 $array = array();
 while ($row = mysql_fetch_assoc($query_result)) {
     $id=$row['id'];
+    print_r($row);
     if($row['ip']==$ip){
         $h=' class="danger"';
     }else{
