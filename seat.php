@@ -5,7 +5,7 @@ if (!isset($_COOKIE["token"])) {
 $totala=64;
 $totalb=15;
 include("connect.php");
-$ip = $_SERVER['REMOTE_ADDR'];
+$ip = $_SERVER['SERVER_ADDR'];
 echo $ip;
 $quy = "SELECT ip.id,ip.ip,ip.room,user.fullname FROM ip left join user on ip.moodleid=user.moodleid";
 $query_result = mysql_query($quy);
