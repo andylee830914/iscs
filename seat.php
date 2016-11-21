@@ -14,7 +14,7 @@ while ($row = mysql_fetch_assoc($query_result)) {
     $id=$row['id'];
     if($row['ip']==$ip){
         $h=' class="danger"';
-        echo $ip;
+        echo $h;
     }else{
         $h='';
     }
