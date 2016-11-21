@@ -135,7 +135,7 @@ $totala=64;
           $totalbt1=$totalb1+$totala;
           $totalbt2=$totalb2+$totala;
           
-          echo '<tr><td'.$array[$totalbt1]['h'].'>'.$array[$totalbt1]['ip'].'<br>'.$array[$totalbt1]['name'].'</td><td'.$array[$totalbt1]['h'].'>'.$array[$totalbt2]['ip'].'<br>'.$array[$totalbt2]['name'].'</td></tr>';
+          echo '<tr><td'.$array[$totalbt1]['h'].'>'.$array[$totalbt1]['ip'].'<br>'.$array[$totalbt1]['name'].'</td><td'.$array[$totalbt2]['h'].'>'.$array[$totalbt2]['ip'].'<br>'.$array[$totalbt2]['name'].'</td></tr>';
 
           $totalb=$totalb+1;
 }
@@ -158,7 +158,7 @@ $totala=64;
 
             
           }else{
-           echo '<tr><td'.$array[$totalbt1]['h'].'>'.$array[$totalbt1]['ip'].'<br>'.$array[$totalbt1]['name'].'</td><td'.$array[$totalbt1]['h'].'>'.$array[$totalbt2]['ip'].'<br>'.$array[$totalbt2]['name'].'</td></tr>';
+           echo '<tr><td'.$array[$totalbt1]['h'].'>'.$array[$totalbt1]['ip'].'<br>'.$array[$totalbt1]['name'].'</td><td'.$array[$totalbt2]['h'].'>'.$array[$totalbt2]['ip'].'<br>'.$array[$totalbt2]['name'].'</td></tr>';
 
           }
           $totalb=$totalb+1;
