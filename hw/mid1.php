@@ -22,7 +22,6 @@ if(mysql_num_rows($result3)==0){
   $filename="";
 }else{
   $filename=mysql_result($result3,0,5);
-  
 }
 // $hw=$moodleid % 2;
 $hw=0;
@@ -212,6 +211,12 @@ var site_url="<?php echo $url;?>"
         $("#enter").removeAttr('disabled');
     }else{
         $("#enter").attr('disabled','disabled');
+    }
+  });
+
+  $("#pic").click(function(e){
+    if($("#pic").val()){
+      window.location.href='../upload/download.php';
     }
   });
   </script>
