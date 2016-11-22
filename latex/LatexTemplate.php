@@ -77,7 +77,7 @@ class LatexTemplate {
 		file_put_contents($tex_f, ob_get_clean());
 	
 		// Run xelatex (Used because of native unicode and TTF font support)
-		$cmd = sprintf("/Library/TeX/texbin/xelatex -interaction nonstopmode -halt-on-error %s",
+		$cmd = sprintf("xelatex -interaction nonstopmode -halt-on-error %s",
 				escapeshellarg($tex_f));
 		chdir(sys_get_temp_dir());
 		exec($cmd, $foo, $ret);
@@ -94,7 +94,7 @@ class LatexTemplate {
 		}
 	
 		// Send through output
-		rename($pdf_f, '/Users/andylee/midall/'.$outp_file);
+		rename($pdf_f, '/home/andylee/mid/midall/'.$outp_file);
 	
 		// Final cleanup
 		@unlink($pdf_f);
