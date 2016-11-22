@@ -22,10 +22,11 @@ echo '\n';
 
 $midquy="select ip.id,user.moodleid,user.fullname from user left join ip on ip.moodleid=user.moodleid where user.idnumber='".$name."'";
 $result=mysql_query($midquy);
-$moodleid=mysql_result($result,0,0);
+$seatid=mysql_result($result,0,0);
+$moodleid=mysql_result($result,0,1);
 $fullname=mysql_result($result,0,2);
 echo $fullname;
-$hw=$moodleid % 2;
+$hw=$seatid % 2;
 date_default_timezone_set('Asia/Taipei');
 $date = date('Y-m-d H:i:s');  
 
@@ -39,7 +40,7 @@ $date = date('Y-m-d H:i:s');
 	);
 
 	try {
-		LatexTemplate::export($data, '/Library/Server/Web/Data/Sites/Default/iscs/latex/mid1/mid2_'.$hw.'.tex', $name.'_MID.pdf');
+		LatexTemplate::export($data, '/home/andylee/mid/mid2_'.$hw.'.tex', $name.'_MID.pdf');
     
 
     

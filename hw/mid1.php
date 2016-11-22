@@ -13,7 +13,8 @@ require_once('../latex/MATLABTemplate.php');
 $quy="select * from user where idnumber='".$name."'";
 $midquy="select ip.id,user.moodleid,user.fullname from user left join ip on ip.moodleid=user.moodleid where user.idnumber='".$name."'";
 
-$result=mysql_query($quy);
+$result=mysql_query($midquy);
+$seatid=mysql_result($result,0,0);
 $moodleid=mysql_result($result,0,1);
 $fullname=mysql_result($result,0,3);
 $quy3="select * from midterm where moodleid='".$moodleid."' ORDER BY time DESC";
@@ -23,8 +24,8 @@ if(mysql_num_rows($result3)==0){
 }else{
   $filename=mysql_result($result3,0,5);
 }
-// $hw=$moodleid % 2;
-$hw=0;
+$hw=$seatid % 2;
+// $hw=0;
 date_default_timezone_set('Asia/Taipei');
 $date = date('Y-m-d H:i:s');  
 
@@ -41,7 +42,7 @@ if(isset($_GET['t']) && $_GET['ppass']==md5('pdf2016midterm'.$name)) {
 	);
 
 	try {
-		LatexTemplate::download($data, $url.'latex/mid1/mid2_'.$hw.'.tex', $name.'_MID.pdf');
+		LatexTemplate::download($data, '/home/andylee/mid/mid2_'.$hw.'.tex', $name.'_MID.pdf');
     //remember to change parameter!!
     $quy2="INSERT INTO download (moodleid,time, download, hw) VALUES ('".$moodleid."','".$date."','midpdf".$hw."',  '105')";
     mysql_query($quy2);
@@ -64,7 +65,7 @@ if(isset($_GET['py']) && $_GET['mpass']==md5('mat2016midterm'.$name)) {
 
 	try {
     $root = realpath($_SERVER["DOCUMENT_ROOT"]);
-    $python="$root/iscs/latex/hw2/pymat.py";    
+    $python="/home/andylee/mid/pymat.py";    
     MATLABTemplate::download($python,$name,$moodleid);
     //echo 'python /home/www/html/iscs/ta/pymat.py '.$moodleid;
     $date       = date('Y-m-d H:i:s');
