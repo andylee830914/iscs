@@ -67,11 +67,15 @@ class MATLABTemplate {
 		}
 	
 		// Send through output
-		$fp = fopen($zip_f, 'rb');
+		header("Expires: 0");
+    	header("Pragma: no-cache");
+    	header('Cache-Control: no-store, no-cache, must-revalidate');
+    	header('Cache-Control: pre-check=0, post-check=0, max-age=0');
+    	header("Content-Description: File Transfer");
 		header('Content-Type: application/zip');
 		header('Content-Disposition: attachment; filename="data.zip"' );
-		header('Content-Length: ' . filesize($zip_f));
-		fpassthru($fp);
+		header('Content-Length: ' . (string)(filesize($zip_f)));
+		readfile($zip_f);
 	
 		// Final cleanup
 		@unlink($mat_f);
