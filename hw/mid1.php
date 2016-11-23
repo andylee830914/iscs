@@ -161,14 +161,15 @@ var site_url="<?php echo $url;?>"
     </td>
     </tr>
     <tr>
-    
+      </table>    
+      <table>
   <td class="col-md-12">
     <h3>檔案上傳區</h3>    
   
     <div>
     <?php
     echo '<div class="form-group ">';
-    echo '<div class="col-sm-5">';
+    echo '<div class="col-md-12">';
     echo '<input  class="form-control" id="pic" name="pic" placeholder="請選擇檔案後，按「上傳」鍵。"
            value="'.$filename.'" readonly>';
     // echo '</div><div class="col-sm-4">';
@@ -183,7 +184,7 @@ var site_url="<?php echo $url;?>"
   <td class="col-md-12">
     <form>
     <div class="form-group form-inline">
-        <div class="col-sm-3">
+        <div class="col-md-8">
             <input type="file" name="userfile" size="20" id="userfile"/>
         </div>
         <div class="col-sm-4">
