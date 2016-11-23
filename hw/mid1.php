@@ -60,13 +60,13 @@ if(isset($_GET['py']) && $_GET['mpass']==md5('mat2016midterm'.$name)) {
 	$test = $_GET['t'];
 	$data = array(
 			'idnumber' => $name,
-      'moodleid' => $moodleid
+      'moodleid' => $seatid
 	);
 
 	try {
     $root = realpath($_SERVER["DOCUMENT_ROOT"]);
     $python="/home/andylee/mid/pymat.py";    
-    MATLABTemplate::download($python,$name,$moodleid);
+    MATLABTemplate::download1($python,$name,$seatid);
     //echo 'python /home/www/html/iscs/ta/pymat.py '.$moodleid;
     $date       = date('Y-m-d H:i:s');
     $quy3="INSERT INTO download (moodleid,time, download, hw) VALUES ('".$moodleid."','".$date."','midmat".$hw."',  '105')";
