@@ -16,7 +16,7 @@ $midquy="select ip.id,user.moodleid,user.fullname from user left join ip on ip.m
 $result=mysql_query($midquy);
 $seatid=mysql_result($result,0,0);
 $moodleid=mysql_result($result,0,1);
-$fullname=mysql_result($result,0,3);
+$fullname=mysql_result($result,0,2);
 $quy3="select * from midterm where moodleid='".$moodleid."' ORDER BY time DESC";
 $result3=mysql_query($quy3);
 if(mysql_num_rows($result3)==0){
