@@ -58,7 +58,6 @@ class MATLABTemplate {
 		$cmd = sprintf("python ".$python." ".$f." ".$username." ".$moodleid);
 		chdir(sys_get_temp_dir());
 		exec($cmd, $foo, $ret);
-		print_r($cmd);
 	
 		// Test here
 		if(!file_exists($zip_f)) {
@@ -67,12 +66,11 @@ class MATLABTemplate {
 		}
 	
 		// Send through output
-		// $fp = fopen($zip_f, 'rb');
-		// header('Content-Type: application/zip');
-		// header('Content-Disposition: attachment; filename="data.zip"' );
-		// header('Content-Length: ' . filesize($zip_f));
-		// fpassthru($fp);
-		
+		$fp = fopen($zip_f, 'rb');
+		header('Content-Type: application/zip');
+		header('Content-Disposition: attachment; filename="data.zip"' );
+		header('Content-Length: ' . filesize($zip_f));
+		fpassthru($fp);
 	
 		// Final cleanup
 		@unlink($mat_f);
