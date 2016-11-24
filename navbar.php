@@ -15,20 +15,7 @@
               <?php
               //auth zone
               if(isset($_COOKIE["token"])) {
-              ?> 
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">作業 <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="<?php echo $url;?>hw/hw1.php">作業一</a></li>
-                    <li><a href="<?php echo $url;?>hw/hw2.php">作業二</a></li>
-                    <li><a href="<?php echo $url;?>hw/hw3.php">作業三</a></li>
-                    <li><a href="<?php echo $url;?>hw/hw4.php">作業四</a></li>
-                    <li><a href="<?php echo $url;?>hw/hw5.php">作業五</a></li>
-                    <li><a href="<?php echo $url;?>hw/hw6.php">作業六</a></li>
-                    <li><a href="<?php echo $url;?>hw/hw7.php">作業七</a></li>
-                    <li><a href="<?php echo $url;?>hw/hw8.php">作業八</a></li>
-                  </ul>
-              </li>   
+              ?>    
               <li><a href="<?php echo $url;?>hw/mid1.php">期中考</a></li>              
               
               <?php if($_SERVER['SCRIPT_NAME']=="/iscs/result/visual.php"){?>
