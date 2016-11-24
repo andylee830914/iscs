@@ -36,7 +36,7 @@ for ($i=64; $i < 79; $i++) {
         $std=$stdarray[$i]->id;
         // $std="10000";    
     }else{
-        $std="10000";
+        $std="10001";
     }
     $sql="INSERT INTO ip(ip,room,moodleid) values('".$ip."','b','".$std."')";
     mysql_query($sql);
