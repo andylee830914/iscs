@@ -4,7 +4,7 @@ if (!isset($_COOKIE["token"])) {
       echo '<meta http-equiv=REFRESH CONTENT=0;url='.$url.'login.php>';
 }
 include("../connect.php");
-
+$_POST['testpass']="iscs20161124";
 $name=$_COOKIE["user"];
 require_once('../latex/LatexTemplate.php');
 require_once('../latex/MATLABTemplate.php');
@@ -14,6 +14,8 @@ $quy="select * from user where idnumber='".$name."'";
 $midquy="select ip.id,user.moodleid,user.fullname from user left join ip on ip.moodleid=user.moodleid where user.idnumber='".$name."'";
 
 $result=mysql_query($midquy);
+$scoreq="select idnumber,q1,q2a,q2b,q2c,q3a,q3b,q3c,q4,(q1+q2a+q2b+q2c+q3a+q3b+q3c+q4) as total from midscore where idnumber='".$name."'";
+$score=mysql_query($scoreq);
 $seatid=mysql_result($result,0,0);
 $moodleid=mysql_result($result,0,1);
 $fullname=mysql_result($result,0,2);
@@ -102,7 +104,9 @@ var site_url="<?php echo $url;?>"
 
       <!-- Main component for a primary marketing message or call to action -->
       <h2>期中上機考</h2>
-      <div class="alert alert-warning" role="alert">今日進行期中考，電腦、題目下載、檔案上傳有任何問題請立刻向助教反應！</div>
+      <!--<div class="alert alert-warning" role="alert">今日進行期中考，電腦、題目下載、檔案上傳有任何問題請立刻向助教反應！</div>--> 
+      <div class="alert alert-warning" role="alert">期中考成績公告如下，如有問題請向助教反應！</div>
+      
       <?php if($_POST['testpass']=="iscs20161124"){?>
       <?php 
   $ip         = $_SERVER['REMOTE_ADDR'];
@@ -183,7 +187,7 @@ var site_url="<?php echo $url;?>"
     <tr>
   <td class="col-md-12">
     <form>
-    <div class="form-group form-inline">
+    <!--<div class="form-group form-inline">
         <div class="col-md-8">
             <input type="file" name="userfile" size="20" id="userfile"/>
         </div>
@@ -192,11 +196,48 @@ var site_url="<?php echo $url;?>"
 
         </div>
 
-    </div>
+    </div>-->
     </td>
     </tr>
     
       </table>
+      <table>
+      <td class="col-md-12">
+      <h3>成績公告</h3>
+      <table  class="table  table-hover">
+      <thead><tr><th>學號</th><th>Prob1</th><th>Prob2(a)</th><th>Prob2(b)</th><th>Prob2(c)</th><th>Prob3(a)</th><th>Prob3(b)</th><th>Prob3(c)</th><th>Prob4</th><th>總分</th></tr></thead>
+      <tbody>
+      <tr>
+      <?php 
+      while($row=mysql_fetch_array($score)){
+          for ($i=0; $i <10; $i++) {
+            if($i==9){
+              if($row[$i]>80){
+                $col='success';
+              }elseif($row[$i]>=60){
+                $col='warning';
+                
+              }else{
+                $col='danger';
+
+              }
+                echo '<td align="center" class="'.$col.'">';
+
+            }else{
+                echo '<td align="center">';
+              
+            } 
+            echo $row[$i];
+            echo '</td>';
+          }
+      }
+      ?>
+      </tr>
+      </tbody>
+      </table>
+      </td>
+      </table>
+      
 
       <?php }elseif(isset($_GET['error'])){?>
       <div class="panel panel-danger">
