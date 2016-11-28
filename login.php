@@ -1,7 +1,7 @@
 <?php
 $url="";
 function moodle_check($array){
-        $domainname = "http://140.116.90.216";
+        $domainname = "http://140.116.21.120";
         $where['username'] = $array['username'];
         $where['password'] = $array['password'];
         // $where['service']  = 'ncku_moodle_app';
