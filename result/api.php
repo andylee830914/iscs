@@ -5,7 +5,7 @@ if (!isset($_COOKIE["token"])) {
 $assignment=$_GET['hw'];
 function get_all_assignment($assid){
         $apiurl = "http://moodle.ncku.edu.tw/webservice/rest/server.php";
-        $where['wstoken'] = '612375be1cf194cff1e30d8170457ff1';
+        $where['wstoken'] = '4b5962316a85f5731f73450b48b66978';
         $where['wsfunction'] = 'mod_assign_get_submissions';
         $where['moodlewsrestformat']  = 'json';
         $where['assignmentids[0]']=$assid;
