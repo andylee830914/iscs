@@ -58,11 +58,11 @@ if (isset($_GET['py'])||isset($_GET['t'])) {
           <h3>作業要求</h3>
           <ul>
               <li>終於邁向作業十囉！！</li>
-              <li>請按底下的「下載檔案」，下載本次的 作業題目PDF檔</li>                           
+              <li>請按底下的「下載檔案」，下載本次的作業題目PDF檔</li>                           
               <li>上傳規定：
                   <ul>
                   <li>請回 moodle 上傳本次作業。</li>
-                  <li>本次作業請交：q1.py,q2.py,q1.jpg,q2.jpg</li>                                                   
+                  <li>本次作業請交：q1.py, q2.py</li>                                                   
                   <li>檔案請一起放進資料夾，使用zip壓縮。</li>                                                                                    
                   <li>檔名：<strong>學號_HW10.zip</strong></li>               
                   </ul>

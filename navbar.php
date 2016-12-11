@@ -28,6 +28,7 @@
                     <li><a href="<?php echo $url;?>hw/hw7.php">作業七</a></li>
                     <li><a href="<?php echo $url;?>hw/hw8.php">作業八</a></li>
                     <li><a href="<?php echo $url;?>hw/hw9.php">作業九</a></li>
+                    <li><a href="<?php echo $url;?>hw/hw10.php">作業十</a></li>
                   </ul>
               </li>   
               <?php if($_SERVER['SCRIPT_NAME']=="/iscs/result/visual.php"){?>
