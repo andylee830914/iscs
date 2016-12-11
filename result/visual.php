@@ -7,7 +7,7 @@ if (!isset($_COOKIE["token"])) {
 $name=$_COOKIE["user"];
 function get_assignment(){
         $apiurl = "http://moodle.ncku.edu.tw/webservice/rest/server.php";
-        $where['wstoken'] = '612375be1cf194cff1e30d8170457ff1';
+        $where['wstoken'] = '4b5962316a85f5731f73450b48b66978';
         $where['wsfunction'] = 'mod_assign_get_assignments';
         $where['moodlewsrestformat']  = 'json';
         $where['courseids[0]']='83211';
