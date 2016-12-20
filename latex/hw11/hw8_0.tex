@@ -1,0 +1,100 @@
+% This file is a valid PHP file and also a valid LaTeX file
+% When processed with LaTeX, it will generate a blank template
+% Loading with PHP will fill it with details
+
+\documentclass[12pt,a4paper]{article}
+% Required for proper escaping
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+%\usepackage{ctex}
+%\XeTeXlinebreaklocale "zh"
+%\XeTeXlinebreakskip = 0pt plus 1pt
+\usepackage{CJK}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{mylilas}{RGB}{170,55,241}
+
+
+\lstset{language=Matlab,%
+    %basicstyle=\color{red},
+    basicstyle=\ttfamily,
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},
+}
+% Make placeholders visible
+\newcommand{\placeholder}[1]{\textbf{$<$ #1 $>$}}
+
+% Defaults for each variable
+\newcommand{\idnumber}{\placeholder{Student ID}}
+\newcommand{\moodleid}{\placeholder{ID}}
+
+
+% Fill in
+% <?php echo "\n" . "\\renewcommand{\\idnumber}{" . CLatexTemplate::escape($data['idnumber']) . "}\n"; ?>
+% <?php echo "\n" . "\\renewcommand{\\moodleid}{" . CLatexTemplate::escape($data['moodleid']) . "}\n"; ?>
+
+% LaTeX code for the invoice
+\usepackage{tabularx}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\begin{document}
+\begin{CJK}{UTF8}{bsmi}
+\begin{flushleft}Introduction to Scientific Computing Software HW11
+\\Student ID : \idnumber{}\end{flushleft}
+
+本次作業要開始使用 Python 3 囉！這次作業希望大家使用 Jupyter 來練習寫 Python，作業請繳交 \texttt{.ipynb} 檔
+\begin{itemize}
+\item 請將以下 MATLAB 牛頓法程式翻譯成 Python 版本
+
+
+\begin{lstlisting}[frame=single,caption=myfun.m]
+function y=myfun(x)
+    y = -atan(x)+exp(x)-1.5;
+end
+\end{lstlisting}
+
+\begin{lstlisting}[frame=single,caption=myfund.m]
+function y=myfund(x)
+    y = exp(x)-1.0/(x^2+1.0);
+end
+\end{lstlisting}
+
+\begin{lstlisting}[frame=single,caption=mynewton.m]
+function xn=mynewton(x0,epsilon,maxIt)
+    itera = 0;
+    x_old = x0-myfun(x0)/myfund(x0);
+    x_new = x_old+2*epsilon;
+    while abs(x_new-x_old)>epsilon & itera<maxIt
+        x_old = x_new;
+        x_new = x_old-myfun(x_old)/myfund(x_old);
+        itera = itera+1;
+    end
+    xn=x_new;
+end
+\end{lstlisting}
+
+\begin{lstlisting}[frame=single,caption=hw11.m]
+x0=-7;
+epsilon = 10^-3;
+maxInt = 100;
+x = mynewton(x0,epsilon,maxInt);
+\end{lstlisting}
+\end{itemize}
+\end{CJK}
+\end{document}
